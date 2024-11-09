@@ -16,8 +16,7 @@ public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
-    @Autowired
-    private ReservationRepository passengerRepository;
+    private ReservationRepository reservationRepository;
 
     @GetMapping("/reservations")
     public ResponseEntity<List<Reservation>> getAll() {

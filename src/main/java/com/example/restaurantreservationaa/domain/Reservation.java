@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,14 +16,19 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "reservation_date")
+    private Date reservationDate;
     @Column
-    private String name;
+    private int numOfGuests;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "table_id")
+    private Table table;
     @Column
-    private String surname;
-    @Column
-    private String email;
-    @Column
-    private String phone;
-    @Column
-    private String nationality;
+    private String status;
+
+    @OneToMany(mappedBy = "reservation")
+    private List<Order> order;
 }
