@@ -27,5 +27,5 @@ public class Table {
     private String features;
 
     @OneToMany(mappedBy = "table")
-    private List<Reservation> reservation;
+    private List<Reservation> reservations;
 }

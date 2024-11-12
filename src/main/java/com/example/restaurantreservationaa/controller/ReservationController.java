@@ -16,7 +16,6 @@ public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
-    private ReservationRepository reservationRepository;
 
     @GetMapping("/reservations")
     public ResponseEntity<List<Reservation>> getAll() {
@@ -28,7 +27,6 @@ public class ReservationController {
         Reservation reservation = reservationService.get(reservationId);
         return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
-
 
     @PostMapping("/reservations")
     public ResponseEntity<Reservation> addReservation(@RequestBody Reservation reservation) {

@@ -28,5 +28,5 @@ public class Customer {
     private Date dateJoined;
 
     @OneToMany(mappedBy = "customer")
-    private List<Reservation> reservation;
+    private List<Reservation> reservations;
 }

@@ -27,8 +27,8 @@ public class ReservationService {
         return reservationRepository.save(reservation);
     }
 
-    public void remove(long passengerId) throws ReservationNotFoundException {
-        reservationRepository.findById(passengerId).orElseThrow(ReservationNotFoundException::new);
-        reservationRepository.deleteById(passengerId);
+    public void remove(long reservationId) throws ReservationNotFoundException {
+        reservationRepository.findById(reservationId).orElseThrow(ReservationNotFoundException::new);
+        reservationRepository.deleteById(reservationId);
     }
 }

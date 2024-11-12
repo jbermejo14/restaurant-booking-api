@@ -26,6 +26,6 @@ public class MenuItem {
     @Column
     private Boolean isVegetarian;
 
-//    @ManyToMany(mappedBy = "menuitem")
-//    private List<Order> order;
+    @ManyToMany(mappedBy = "menuItems")
+    private List<Order> orders;
 }
