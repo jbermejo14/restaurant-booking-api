@@ -1,7 +1,10 @@
 package com.example.restaurantreservationaa.service;
 
+import com.example.restaurantreservationaa.domain.Customer;
 import com.example.restaurantreservationaa.domain.Reservation;
+import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.exception.ReservationNotFoundException;
+import com.example.restaurantreservationaa.repository.CustomerRepository;
 import com.example.restaurantreservationaa.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,8 @@ public class ReservationService {
 
     @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     public List<Reservation> getAll() {
         List<Reservation> allReservations = reservationRepository.findAll();
@@ -23,7 +28,9 @@ public class ReservationService {
         return reservationRepository.findById(id).orElseThrow(ReservationNotFoundException::new);
     }
 
-    public Reservation add(Reservation reservation) {
+    public Reservation add(long customerId, Reservation reservation) throws CustomerNotFoundException  {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(CustomerNotFoundException::new);
+        reservation.setCustomer(customer);
         return reservationRepository.save(reservation);
     }
 

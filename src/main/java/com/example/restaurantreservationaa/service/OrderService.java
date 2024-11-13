@@ -1,11 +1,8 @@
 package com.example.restaurantreservationaa.service;
 
 import com.example.restaurantreservationaa.domain.Order;
-import com.example.restaurantreservationaa.domain.Reservation;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
-import com.example.restaurantreservationaa.exception.ReservationNotFoundException;
 import com.example.restaurantreservationaa.repository.OrderRepository;
-import com.example.restaurantreservationaa.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
