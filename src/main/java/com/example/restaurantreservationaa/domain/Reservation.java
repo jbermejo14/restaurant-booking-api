@@ -23,12 +23,8 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @ManyToOne
-    @JoinColumn(name = "table_id")
-    private Table table;
     @Column
     private String status;
-
     @OneToMany(mappedBy = "reservation")
     private List<Order> order;
 }

@@ -1,0 +1,20 @@
+package com.example.restaurantreservationaa.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ReservationOutDto {
+    private long id;
+    private Date reservationDate;
+    private int numOfGuests;
+    private long customerId;
+    private long tableId;
+    private String status;
+
+}
