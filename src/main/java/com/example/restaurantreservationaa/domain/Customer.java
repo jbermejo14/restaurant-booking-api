@@ -1,5 +1,6 @@
 package com.example.restaurantreservationaa.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,14 +20,15 @@ public class Customer {
     @Column
     private String name;
     @Column
-    private String surname;
-    @Column
     private String email;
     @Column
     private String phone;
+    @Column
+    private String password;
     @Column(name = "date_joined")
     private Date dateJoined;
 
     @OneToMany(mappedBy = "customer")
+    @JsonBackReference(value = "customer_reservations")
     private List<Reservation> reservations;
 }

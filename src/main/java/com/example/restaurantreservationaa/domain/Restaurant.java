@@ -4,28 +4,25 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
+import org.hibernate.annotations.ColumnDefault;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="tables")
-public class Table {
+@Entity(name="restaurants")
+public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private int tableNum;
+    private String name;
     @Column
-    private int seatingCapacity;
+    private String address;
     @Column
-    private boolean isAvailable;
-    @Column
-    private String location;
-    @Column
-    private String features;
+    private String phone;
+    @ColumnDefault("0")
+    private double latitude;
+    @ColumnDefault("0")
+    private double longitude;
 
-    @OneToMany(mappedBy = "table")
-    private List<Reservation> reservations;
 }

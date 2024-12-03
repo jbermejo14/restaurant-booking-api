@@ -1,6 +1,7 @@
 package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Reservation;
+import com.example.restaurantreservationaa.domain.dto.ReservationOutDto;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.exception.ReservationNotFoundException;
 import com.example.restaurantreservationaa.repository.ReservationRepository;
@@ -19,7 +20,7 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/reservations")
-    public ResponseEntity<List<Reservation>> getAll() {
+    public ResponseEntity<List<ReservationOutDto>> getAll() {
         return new ResponseEntity<>(reservationService.getAll(), HttpStatus.OK);
     }
 
@@ -29,11 +30,11 @@ public class ReservationController {
         return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
 
-    @PostMapping("/customers/{customerId}/reservations")
-    public ResponseEntity<Reservation> addReservation(@PathVariable long customerId, @RequestBody Reservation reservation) throws CustomerNotFoundException {
-        Reservation newReservation = reservationService.add(customerId, reservation);
-        return new ResponseEntity<>(newReservation, HttpStatus.CREATED);
-    }
+//    @PostMapping("/customers/{customerId}/reservations")
+//    public ResponseEntity<Reservation> addReservation(@PathVariable long customerId, @RequestBody Reservation reservation) throws CustomerNotFoundException {
+//        Reservation newReservation = reservationService.add(customerId, reservation);
+//        return new ResponseEntity<>(newReservation, HttpStatus.CREATED);
+//    }
 
     @DeleteMapping("/reservation/:reservationId")
     public ResponseEntity<Void> removeReservation(long reservationId) throws ReservationNotFoundException{
