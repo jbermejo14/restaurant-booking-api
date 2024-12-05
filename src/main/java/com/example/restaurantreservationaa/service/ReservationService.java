@@ -2,8 +2,8 @@ package com.example.restaurantreservationaa.service;
 
 import com.example.restaurantreservationaa.domain.Customer;
 import com.example.restaurantreservationaa.domain.Reservation;
-import com.example.restaurantreservationaa.domain.dto.ReservationInDto;
-import com.example.restaurantreservationaa.domain.dto.ReservationOutDto;
+import com.example.restaurantreservationaa.domain.dto.reservation.ReservationInDto;
+import com.example.restaurantreservationaa.domain.dto.reservation.ReservationOutDto;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.exception.ReservationNotFoundException;
 import com.example.restaurantreservationaa.repository.CustomerRepository;
@@ -13,7 +13,6 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

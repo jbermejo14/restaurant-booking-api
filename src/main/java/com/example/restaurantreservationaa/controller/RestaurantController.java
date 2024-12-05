@@ -3,8 +3,8 @@ package com.example.restaurantreservationaa.controller;
 import com.example.restaurantreservationaa.domain.Restaurant;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.service.RestaurantService;
-import com.example.restaurantreservationaa.domain.dto.RestaurantOutDto;
-import com.example.restaurantreservationaa.domain.dto.RestaurantRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;

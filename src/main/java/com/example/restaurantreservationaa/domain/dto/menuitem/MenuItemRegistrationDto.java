@@ -1,4 +1,4 @@
-package com.example.restaurantreservationaa.domain.dto;
+package com.example.restaurantreservationaa.domain.dto.menuitem;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemOutDto {
+public class MenuItemRegistrationDto {
     private long id;
     private String name;
     private String description;
