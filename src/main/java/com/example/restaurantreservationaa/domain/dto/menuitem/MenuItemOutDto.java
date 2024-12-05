@@ -1,17 +1,15 @@
-package com.example.restaurantreservationaa.domain.dto;
+package com.example.restaurantreservationaa.domain.dto.menuitem;
 
-import com.example.restaurantreservationaa.domain.Order;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemInDto {
+public class MenuItemOutDto {
+    private long id;
     private String name;
     private String description;
     private Float price;

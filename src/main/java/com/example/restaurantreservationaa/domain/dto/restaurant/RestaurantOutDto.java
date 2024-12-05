@@ -1,6 +1,5 @@
-package com.example.restaurantreservationaa.domain.dto;
+package com.example.restaurantreservationaa.domain.dto.restaurant;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

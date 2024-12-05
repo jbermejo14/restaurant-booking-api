@@ -1,8 +1,8 @@
 package com.example.restaurantreservationaa.service;
 
 import com.example.restaurantreservationaa.domain.Restaurant;
-import com.example.restaurantreservationaa.domain.dto.RestaurantOutDto;
-import com.example.restaurantreservationaa.domain.dto.RestaurantRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantRegistrationDto;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.repository.RestaurantRepository;
 import org.modelmapper.TypeToken;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
