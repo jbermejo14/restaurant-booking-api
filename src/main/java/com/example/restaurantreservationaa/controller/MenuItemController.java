@@ -11,28 +11,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/menuitems")
+
 public class MenuItemController {
 
     @Autowired
     private MenuItemService menuItemService;
 
-    @GetMapping("/menuitems")
+    @GetMapping
     public ResponseEntity<List<MenuItem>> getAll() {
         return new ResponseEntity<>(menuItemService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/menuitems/:menuitemId")
+    @GetMapping("/{menuitemId}")
     public ResponseEntity<MenuItem> getMenuItem(long customerId)  throws MenuItemNotFoundException {
         MenuItem menuItem = menuItemService.get(customerId);
         return new ResponseEntity<>(menuItem, HttpStatus.OK);
     }
 
-    @PostMapping("/menuitems")
+    @PostMapping
     public ResponseEntity<MenuItem> addMenuItem(@RequestBody MenuItem menuitem) {
         return new ResponseEntity<>(menuItemService.add(menuitem), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/menuitem/:menuitemId")
+    @DeleteMapping("/{menuitemId}")
     public ResponseEntity<Void> removeMenuItem(long menuitemId) throws MenuItemNotFoundException{
         menuItemService.remove(menuitemId);
         return ResponseEntity.noContent().build();
