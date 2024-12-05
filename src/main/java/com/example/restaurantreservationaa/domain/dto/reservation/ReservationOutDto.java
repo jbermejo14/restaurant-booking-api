@@ -1,4 +1,4 @@
-package com.example.restaurantreservationaa.domain.dto;
+package com.example.restaurantreservationaa.domain.dto.reservation;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

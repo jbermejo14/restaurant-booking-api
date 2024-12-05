@@ -1,10 +1,9 @@
 package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Reservation;
-import com.example.restaurantreservationaa.domain.dto.ReservationOutDto;
+import com.example.restaurantreservationaa.domain.dto.reservation.ReservationOutDto;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.exception.ReservationNotFoundException;
-import com.example.restaurantreservationaa.repository.ReservationRepository;
 import com.example.restaurantreservationaa.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
