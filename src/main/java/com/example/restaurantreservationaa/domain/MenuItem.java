@@ -1,9 +1,12 @@
 package com.example.restaurantreservationaa.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -20,12 +23,13 @@ public class MenuItem {
     @Column
     private String description;
     @Column
-    private Float price;
+    private double price;
     @Column
     private String category;
     @Column
     private Boolean isVegetarian;
 
     @ManyToMany(mappedBy = "menuItems")
+    @JsonIgnore
     private List<Order> orders;
 }

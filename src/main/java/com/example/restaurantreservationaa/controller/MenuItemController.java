@@ -1,6 +1,8 @@
 package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.MenuItem;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
 import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.service.MenuItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,30 +14,33 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/menuitems")
-
 public class MenuItemController {
 
     @Autowired
     private MenuItemService menuItemService;
 
     @GetMapping
-    public ResponseEntity<List<MenuItem>> getAll() {
-        return new ResponseEntity<>(menuItemService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<MenuItemOutDto>> getAll(@RequestParam(value = "name", defaultValue = "") String name,
+                                                @RequestParam(value = "description", defaultValue = "") String description,
+                                                       @RequestParam(value = "price", defaultValue = "0.0") double price)  {
+        List<MenuItemOutDto> menuItems = menuItemService.getAll(name, description, price);
+        return new ResponseEntity<>(menuItems, HttpStatus.OK);
     }
 
     @GetMapping("/{menuitemId}")
-    public ResponseEntity<MenuItem> getMenuItem(long customerId)  throws MenuItemNotFoundException {
-        MenuItem menuItem = menuItemService.get(customerId);
+    public ResponseEntity<MenuItem> getMenuItem(@PathVariable long menuitemId)  throws MenuItemNotFoundException {
+        MenuItem menuItem = menuItemService.get(menuitemId);
         return new ResponseEntity<>(menuItem, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<MenuItem> addMenuItem(@RequestBody MenuItem menuitem) {
-        return new ResponseEntity<>(menuItemService.add(menuitem), HttpStatus.CREATED);
+    public ResponseEntity<MenuItemOutDto> addMenuItem(@RequestBody MenuItemRegistrationDto menuItem) {
+        MenuItemOutDto newMenuItem = menuItemService.add(menuItem);
+        return new ResponseEntity<>(newMenuItem, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{menuitemId}")
-    public ResponseEntity<Void> removeMenuItem(long menuitemId) throws MenuItemNotFoundException{
+    public ResponseEntity<Void> removeMenuItem(@PathVariable long menuitemId) throws MenuItemNotFoundException{
         menuItemService.remove(menuitemId);
         return ResponseEntity.noContent().build();
     }

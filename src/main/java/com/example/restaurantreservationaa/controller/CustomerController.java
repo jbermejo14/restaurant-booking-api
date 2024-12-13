@@ -12,29 +12,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/customers")
 public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/customers")
+    @GetMapping
     public ResponseEntity<List<Customer>> getAll() {
         return new ResponseEntity<>(customerService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/customers/:customerId")
-    public ResponseEntity<Customer> getCustomer(long customerId)  throws CustomerNotFoundException {
+    @GetMapping("/{customerId}")
+    public ResponseEntity<Customer> getCustomer(@PathVariable long customerId)  throws CustomerNotFoundException {
         Customer customer = customerService.get(customerId);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-    @PostMapping("/customers")
+    @PostMapping
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
         return new ResponseEntity<>(customerService.add(customer), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/customer/:customerId")
-    public ResponseEntity<Void> removeCustomer(long customerId) throws CustomerNotFoundException{
+    @DeleteMapping("/{customerId}")
+    public ResponseEntity<Void> removeCustomer(@PathVariable long customerId) throws CustomerNotFoundException{
         customerService.remove(customerId);
         return ResponseEntity.noContent().build();
     }

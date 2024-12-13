@@ -1,32 +1,31 @@
 package com.example.restaurantreservationaa.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="customers")
-public class Customer {
+@Entity(name="beverages")
+public class Beverage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String name;
     @Column
-    private String email;
+    private String description;
     @Column
-    private String phone;
-    @Column
-    private String password;
-    @Column
-    private String role;
-    @Column(name = "date_joined")
-    private Date dateJoined;
+    private Float price;
+
+    @ManyToMany(mappedBy = "beverages")
+    @JsonIgnore
+    private List<Order> orders;
 }

@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuItemRegistrationDto {
-    private long id;
     private String name;
     private String description;
-    private Float price;
+    private double price;
     private String category;
     private Boolean isVegetarian;
 }

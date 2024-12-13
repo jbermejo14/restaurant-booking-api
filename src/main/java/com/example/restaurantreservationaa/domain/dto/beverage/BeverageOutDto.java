@@ -1,18 +1,15 @@
-package com.example.restaurantreservationaa.domain.dto.menuitem;
+package com.example.restaurantreservationaa.domain.dto.beverage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemOutDto {
+public class BeverageOutDto {
     private long id;
     private String name;
     private String description;
-    private double price;
-    private String category;
-    private Boolean isVegetarian;
+    private Float price;
 }

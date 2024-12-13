@@ -1,6 +1,11 @@
 package com.example.restaurantreservationaa.controller;
 
+import com.example.restaurantreservationaa.domain.Beverage;
+import com.example.restaurantreservationaa.domain.Customer;
+import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.Order;
+import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
+import com.example.restaurantreservationaa.domain.dto.order.OrderRegistrationDto;
 import com.example.restaurantreservationaa.service.OrderService;
 import com.example.restaurantreservationaa.repository.OrderRepository;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
@@ -8,33 +13,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.format.annotation.DateTimeFormat;
+//import jakarta.validation.Valid;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/orders")
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/orders")
-    public ResponseEntity<List<Order>> getAll() {
-        return new ResponseEntity<>(orderService.getAll(), HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<List<OrderOutDto>> getAll(@RequestParam(value = "totalPrice", defaultValue = "0.0") double totalPrice,
+                                                    @RequestParam(value = "quantity", defaultValue = "0") int quantity)  {
+
+        List<OrderOutDto> orders = orderService.getAll(totalPrice, quantity);
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
-    @GetMapping("/orders/:orderId")
-    public ResponseEntity<Order> getOrder(long customerId)  throws OrderNotFoundException {
-        Order order = orderService.get(customerId);
+    @GetMapping("/{orderId}")
+    public ResponseEntity<Order> getOrder(@PathVariable long orderId)  throws OrderNotFoundException {
+        Order order = orderService.get(orderId);
         return new ResponseEntity<>(order, HttpStatus.OK);
     }
 
-    @PostMapping("/orders")
-    public ResponseEntity<Order> addOrder(@RequestBody Order order) {
-        return new ResponseEntity<>(orderService.add(order), HttpStatus.CREATED);
+    @PostMapping
+    public ResponseEntity<OrderOutDto> addOrder(@RequestBody  OrderRegistrationDto order) {
+        OrderOutDto newOrder = orderService.add(order);
+        return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/order/:orderId")
-    public ResponseEntity<Void> removeOrder(long orderId) throws OrderNotFoundException {
+    @DeleteMapping("/{orderId}")
+    public ResponseEntity<Void> removeOrder(@PathVariable long orderId) throws OrderNotFoundException {
         orderService.remove(orderId);
         return ResponseEntity.noContent().build();
     }

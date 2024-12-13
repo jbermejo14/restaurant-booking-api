@@ -11,5 +11,6 @@ import java.util.List;
 public interface MenuItemRepository extends CrudRepository<MenuItem, Long> {
     List<MenuItem> findAll();
     List<MenuItem> findByName(String name);
-    List<MenuItem> findByPrice(float price);
+    List<MenuItem> findByPrice(double price);
+    List<MenuItem> findByNameAndPrice(String name, double price);
 }

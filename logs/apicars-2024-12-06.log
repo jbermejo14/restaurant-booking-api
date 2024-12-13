@@ -1,0 +1,70 @@
+2024-12-06 09:48:47,964 INFO o.s.b.StartupInfoLogger {logStarting} [restartedMain] Starting RestaurantReservationAaApplication using Java 21.0.2 with PID 26050 (/Users/jaimebermejo/IdeaProjects/RestaurantReservationAA/target/classes started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2024-12-06 09:48:47,969 INFO o.s.b.SpringApplication {logStartupProfileInfo} [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-12-06 09:48:48,058 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-06 09:48:48,060 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-06 09:48:49,012 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-06 09:48:49,145 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Finished Spring Data repository scanning in 97 ms. Found 5 JPA repository interfaces.
+2024-12-06 09:48:50,012 INFO o.s.b.w.e.t.TomcatWebServer {initialize} [restartedMain] Tomcat initialized with port 8080 (http)
+2024-12-06 09:48:50,034 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-06 09:48:50,041 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting service [Tomcat]
+2024-12-06 09:48:50,041 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-06 09:48:50,128 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-12-06 09:48:50,131 INFO o.s.b.w.s.c.ServletWebServerApplicationContext {prepareWebApplicationContext} [restartedMain] Root WebApplicationContext: initialization completed in 2068 ms
+2024-12-06 09:48:50,194 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Starting...
+2024-12-06 09:48:50,701 INFO c.z.h.p.HikariPool {checkFailFast} [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
+2024-12-06 09:48:50,706 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Start completed.
+2024-12-06 09:48:50,736 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
+2024-12-06 09:48:51,143 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-06 09:48:51,285 INFO o.h.Version {logVersion} [restartedMain] HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-06 09:48:51,380 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [restartedMain] HHH000026: Second-level cache disabled
+2024-12-06 09:48:51,909 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-06 09:48:51,992 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-06 09:48:53,500 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-06 09:48:53,591 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-06 09:48:54,206 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-06 09:48:54,653 INFO o.s.b.d.a.OptionalLiveReloadServer {startServer} [restartedMain] LiveReload server is running on port 35729
+2024-12-06 09:48:54,668 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-06 09:48:54,691 INFO o.s.b.w.e.t.TomcatWebServer {start} [restartedMain] Tomcat started on port 8080 (http) with context path '/'
+2024-12-06 09:48:54,703 INFO o.s.b.StartupInfoLogger {logStarted} [restartedMain] Started RestaurantReservationAaApplication in 7.622 seconds (process running for 8.353)
+2024-12-06 09:49:09,125 INFO o.a.j.l.DirectJDKLog {log} [http-nio-0.0.0.0-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-06 09:49:09,126 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-12-06 09:49:09,129 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Completed initialization in 2 ms
+2024-12-06 10:50:51,722 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s780ms), soft-evicting connections from pool.
+2024-12-06 11:05:42,414 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-3] Resolved [java.lang.IllegalStateException: Invocation failure<EOL>Controller [com.example.restaurantreservationaa.controller.CustomerController]<EOL>Method [public org.springframework.http.ResponseEntity<com.example.restaurantreservationaa.domain.Customer> com.example.restaurantreservationaa.controller.CustomerController.getCustomer(long) throws com.example.restaurantreservationaa.exception.CustomerNotFoundException] with argument values:<EOL> [0] [type=java.lang.Long] [value=1] ]
+2024-12-06 12:35:00,723 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-06 12:35:01,620 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-12-06 12:35:01,640 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-12-06 14:42:59,921 INFO o.s.b.StartupInfoLogger {logStarting} [restartedMain] Starting RestaurantReservationAaApplication using Java 21.0.2 with PID 31020 (/Users/jaimebermejo/IdeaProjects/RestaurantReservationAA/target/classes started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2024-12-06 14:42:59,925 INFO o.s.b.SpringApplication {logStartupProfileInfo} [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-12-06 14:43:00,042 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-06 14:43:00,043 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-06 14:43:01,028 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-06 14:43:01,162 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Finished Spring Data repository scanning in 97 ms. Found 5 JPA repository interfaces.
+2024-12-06 14:43:02,725 INFO o.s.b.w.e.t.TomcatWebServer {initialize} [restartedMain] Tomcat initialized with port 8080 (http)
+2024-12-06 14:43:02,755 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-06 14:43:02,771 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting service [Tomcat]
+2024-12-06 14:43:02,772 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-06 14:43:02,913 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-12-06 14:43:02,918 INFO o.s.b.w.s.c.ServletWebServerApplicationContext {prepareWebApplicationContext} [restartedMain] Root WebApplicationContext: initialization completed in 2870 ms
+2024-12-06 14:43:03,011 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Starting...
+2024-12-06 14:43:03,557 INFO c.z.h.p.HikariPool {checkFailFast} [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
+2024-12-06 14:43:03,567 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Start completed.
+2024-12-06 14:43:03,619 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
+2024-12-06 14:43:04,009 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-06 14:43:04,119 INFO o.h.Version {logVersion} [restartedMain] HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-06 14:43:04,217 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [restartedMain] HHH000026: Second-level cache disabled
+2024-12-06 14:43:04,784 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-06 14:43:04,873 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-06 14:43:06,301 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-06 14:43:06,402 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-06 14:43:07,049 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-06 14:43:07,504 INFO o.s.b.d.a.OptionalLiveReloadServer {startServer} [restartedMain] LiveReload server is running on port 35729
+2024-12-06 14:43:07,522 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-06 14:43:07,554 INFO o.s.b.w.e.t.TomcatWebServer {start} [restartedMain] Tomcat started on port 8080 (http) with context path '/'
+2024-12-06 14:43:07,567 INFO o.s.b.StartupInfoLogger {logStarted} [restartedMain] Started RestaurantReservationAaApplication in 8.659 seconds (process running for 9.384)
+2024-12-06 14:56:11,966 INFO o.a.j.l.DirectJDKLog {log} [http-nio-0.0.0.0-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-06 14:56:11,968 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-12-06 14:56:11,978 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Completed initialization in 10 ms
+2024-12-06 16:36:31,827 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-06 16:36:31,920 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-12-06 16:36:31,935 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
