@@ -21,17 +21,17 @@ public class OrderService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<OrderOutDto> getAll(double totalPrice, int quantity) {
+    public List<OrderOutDto> getAll(double totalPrice, Date orderDate) {
         List<Order> orderList;
 
-        if (totalPrice == 0.0 && quantity == 0) {
+        if (totalPrice == 0.0 && orderDate == null) {
             orderList = orderRepository.findAll();
         } else if (totalPrice == 0.0) {
-            orderList = orderRepository.findByQuantity(quantity);
-        } else if (quantity == 0) {
+            orderList = orderRepository.findByOrderDate(orderDate);
+        } else if (orderDate == null) {
             orderList = orderRepository.findByTotalPrice(totalPrice);
         } else {
-            orderList = orderRepository.findByQuantityAndTotalPrice(quantity, totalPrice);
+            orderList = orderRepository.findByOrderDateAndTotalPrice(orderDate, totalPrice);
         }
 
         return modelMapper.map(orderList, new TypeToken<List<OrderOutDto>>() {

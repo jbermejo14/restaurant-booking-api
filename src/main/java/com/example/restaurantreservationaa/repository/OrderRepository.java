@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
     List<Order> findAll();
-    List<Order> findByQuantity(int quantity);
+    List<Order> findByOrderDate(Date orderDate);
     List<Order> findByTotalPrice(double totalPrice);
-    List<Order> findByQuantityAndTotalPrice(int quantity, double totalPrice);
+    List<Order> findByOrderDateAndTotalPrice(Date orderDate, double totalPrice);
 }

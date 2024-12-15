@@ -16,6 +16,6 @@ public class OrderOutDto {
     private long id;
     private List<MenuItem> menuItems;
     private List<Beverage> beverages;
-    private int quantity;
+    private Date orderDate;
     private double totalPrice;
 }

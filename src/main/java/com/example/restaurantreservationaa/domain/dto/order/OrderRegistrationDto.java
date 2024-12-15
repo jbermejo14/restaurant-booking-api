@@ -15,6 +15,6 @@ import java.util.List;
 public class OrderRegistrationDto {
     private List<MenuItem> menuItems;
     private List<Beverage> beverages;
-    private int quantity;
+    private Date orderDate;
     private double totalPrice;
 }

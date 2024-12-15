@@ -35,7 +35,7 @@ public class Order {
     private List<Beverage> beverages;
 
     @Column
-    private int quantity;
+    private Date orderDate;
     @Column
     private int totalPrice;
 }

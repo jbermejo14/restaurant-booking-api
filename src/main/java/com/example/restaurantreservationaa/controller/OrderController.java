@@ -1,20 +1,15 @@
 package com.example.restaurantreservationaa.controller;
 
-import com.example.restaurantreservationaa.domain.Beverage;
-import com.example.restaurantreservationaa.domain.Customer;
-import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.Order;
 import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderRegistrationDto;
 import com.example.restaurantreservationaa.service.OrderService;
-import com.example.restaurantreservationaa.repository.OrderRepository;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.format.annotation.DateTimeFormat;
-//import jakarta.validation.Valid;
 
 import java.util.Date;
 import java.util.List;
@@ -27,10 +22,11 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping
-    public ResponseEntity<List<OrderOutDto>> getAll(@RequestParam(value = "totalPrice", defaultValue = "0.0") double totalPrice,
-                                                    @RequestParam(value = "quantity", defaultValue = "0") int quantity)  {
+    public ResponseEntity<List<OrderOutDto>> getAll(@RequestParam(value = "totalPrice", required = false, defaultValue = "0.0") double totalPrice,
+                                                    @RequestParam(value = "orderDate", required = false)
+                                                    @DateTimeFormat(pattern = "yyyy-MM-dd") Date orderDate) {
 
-        List<OrderOutDto> orders = orderService.getAll(totalPrice, quantity);
+        List<OrderOutDto> orders = orderService.getAll(totalPrice, orderDate);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
