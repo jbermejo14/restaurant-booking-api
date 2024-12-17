@@ -25,7 +25,11 @@ public class CustomerService {
     public Customer add(Customer customer) {
         return customerRepository.save(customer);
     }
-
+    public Customer getByName(String name) throws CustomerNotFoundException {
+        return customerRepository.findByName(name)
+                .stream().findFirst()
+                .orElseThrow(CustomerNotFoundException::new);
+    }
     public void remove(long customerId) throws CustomerNotFoundException {
         customerRepository.findById(customerId).orElseThrow(CustomerNotFoundException::new);
         customerRepository.deleteById(customerId);

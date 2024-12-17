@@ -1,0 +1,65 @@
+2024-12-16 16:27:59,108 INFO o.s.b.StartupInfoLogger {logStarting} [restartedMain] Starting RestaurantReservationAaApplication using Java 21.0.2 with PID 27280 (/Users/jaimebermejo/IdeaProjects/RestaurantReservationAA/target/classes started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2024-12-16 16:27:59,114 INFO o.s.b.SpringApplication {logStartupProfileInfo} [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-12-16 16:27:59,227 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-16 16:27:59,227 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-16 16:28:00,154 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-16 16:28:00,260 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Finished Spring Data repository scanning in 80 ms. Found 5 JPA repository interfaces.
+2024-12-16 16:28:00,977 INFO o.s.b.w.e.t.TomcatWebServer {initialize} [restartedMain] Tomcat initialized with port 8080 (http)
+2024-12-16 16:28:00,991 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-16 16:28:00,999 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting service [Tomcat]
+2024-12-16 16:28:00,999 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-16 16:28:01,066 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-12-16 16:28:01,068 INFO o.s.b.w.s.c.ServletWebServerApplicationContext {prepareWebApplicationContext} [restartedMain] Root WebApplicationContext: initialization completed in 1839 ms
+2024-12-16 16:28:01,107 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Starting...
+2024-12-16 16:28:01,442 INFO c.z.h.p.HikariPool {checkFailFast} [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
+2024-12-16 16:28:01,445 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Start completed.
+2024-12-16 16:28:01,459 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
+2024-12-16 16:28:01,662 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-16 16:28:01,755 INFO o.h.Version {logVersion} [restartedMain] HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-16 16:28:01,827 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [restartedMain] HHH000026: Second-level cache disabled
+2024-12-16 16:28:02,291 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-16 16:28:02,391 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-16 16:28:03,682 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-16 16:28:03,760 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-16 16:28:04,321 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-16 16:28:04,726 INFO o.s.b.d.a.OptionalLiveReloadServer {startServer} [restartedMain] LiveReload server is running on port 35729
+2024-12-16 16:28:04,748 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-16 16:28:04,774 INFO o.s.b.w.e.t.TomcatWebServer {start} [restartedMain] Tomcat started on port 8080 (http) with context path '/'
+2024-12-16 16:28:04,802 INFO o.s.b.StartupInfoLogger {logStarted} [restartedMain] Started RestaurantReservationAaApplication in 6.629 seconds (process running for 7.443)
+2024-12-16 16:28:05,620 INFO o.a.j.l.DirectJDKLog {log} [http-nio-0.0.0.0-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-16 16:28:05,621 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-12-16 16:28:05,624 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Completed initialization in 2 ms
+2024-12-16 16:28:12,884 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-6] Resolved [java.lang.IllegalStateException: Invocation failure<EOL>Controller [com.example.restaurantreservationaa.controller.CustomerController]<EOL>Method [public org.springframework.http.ResponseEntity<com.example.restaurantreservationaa.domain.Customer> com.example.restaurantreservationaa.controller.CustomerController.getCustomer(long) throws com.example.restaurantreservationaa.exception.CustomerNotFoundException] with argument values:<EOL> [0] [type=java.lang.Long] [value=1] ]
+2024-12-16 16:59:12,043 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-6] Resolved [java.lang.IllegalStateException: Invocation failure<EOL>Controller [com.example.restaurantreservationaa.controller.CustomerController]<EOL>Method [public org.springframework.http.ResponseEntity<com.example.restaurantreservationaa.domain.Customer> com.example.restaurantreservationaa.controller.CustomerController.getCustomer(long) throws com.example.restaurantreservationaa.exception.CustomerNotFoundException] with argument values:<EOL> [0] [type=java.lang.Long] [value=1] ]
+2024-12-16 17:06:44,088 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-4] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:09:24,501 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-1] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:10:11,126 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-10] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:10:28,995 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-7] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:12:01,238 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-6] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:13:21,826 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-3] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:23:03,613 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-1] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:23:30,490 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-4] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:24:44,151 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-8] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "search"]
+2024-12-16 17:25:32,526 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-3] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'customerId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "jaime"]
+2024-12-16 17:26:18,313 INFO o.a.j.l.DirectJDKLog {log} [http-nio-0.0.0.0-8080-exec-4] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/customers?q={%22name%22:%20%22Jaime%22} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:481)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:257)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-12-16 18:01:02,943 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m30s456ms).
+2024-12-16 20:07:25,746 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m21s618ms).
+2024-12-16 20:25:30,686 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m34s349ms).
+2024-12-16 20:42:41,049 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m40s357ms).
+2024-12-16 20:59:08,460 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m27s411ms).
+2024-12-16 21:02:56,426 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m17s964ms).
+2024-12-16 21:19:26,236 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m59s804ms).
+2024-12-16 21:35:00,472 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m34s236ms).
+2024-12-16 23:35:56,685 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h25s801ms).

@@ -29,6 +29,12 @@ public class CustomerController {
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<Customer> getCustomerByName(@RequestParam(value = "name") String name) throws CustomerNotFoundException {
+        Customer customer = customerService.getByName(name);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
         return new ResponseEntity<>(customerService.add(customer), HttpStatus.CREATED);

@@ -1,0 +1,45 @@
+2024-12-15 15:19:42,281 INFO o.s.b.StartupInfoLogger {logStarting} [restartedMain] Starting RestaurantReservationAaApplication using Java 21.0.2 with PID 21999 (/Users/jaimebermejo/IdeaProjects/RestaurantReservationAA/target/classes started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2024-12-15 15:19:42,302 INFO o.s.b.SpringApplication {logStartupProfileInfo} [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-12-15 15:19:42,673 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-15 15:19:42,675 INFO o.s.b.l.DeferredLog {logTo} [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-15 15:19:44,187 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-15 15:19:44,549 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [restartedMain] Finished Spring Data repository scanning in 294 ms. Found 5 JPA repository interfaces.
+2024-12-15 15:19:46,412 INFO o.s.b.w.e.t.TomcatWebServer {initialize} [restartedMain] Tomcat initialized with port 8080 (http)
+2024-12-15 15:19:46,439 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-15 15:19:46,458 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting service [Tomcat]
+2024-12-15 15:19:46,460 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-15 15:19:46,571 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-12-15 15:19:46,572 INFO o.s.b.w.s.c.ServletWebServerApplicationContext {prepareWebApplicationContext} [restartedMain] Root WebApplicationContext: initialization completed in 3895 ms
+2024-12-15 15:19:46,688 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Starting...
+2024-12-15 15:19:47,221 INFO c.z.h.p.HikariPool {checkFailFast} [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
+2024-12-15 15:19:47,230 INFO c.z.h.HikariDataSource {getConnection} [restartedMain] HikariPool-1 - Start completed.
+2024-12-15 15:19:47,269 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
+2024-12-15 15:19:47,571 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-15 15:19:47,681 INFO o.h.Version {logVersion} [restartedMain] HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-15 15:19:47,778 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [restartedMain] HHH000026: Second-level cache disabled
+2024-12-15 15:19:48,335 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-15 15:19:48,448 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-15 15:19:49,981 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-15 15:19:50,083 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15 15:19:50,694 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-15 15:19:51,704 INFO o.s.b.d.a.OptionalLiveReloadServer {startServer} [restartedMain] LiveReload server is running on port 35729
+2024-12-15 15:19:51,736 INFO o.a.j.l.DirectJDKLog {log} [restartedMain] Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+2024-12-15 15:19:51,816 INFO o.s.b.w.e.t.TomcatWebServer {start} [restartedMain] Tomcat started on port 8080 (http) with context path '/'
+2024-12-15 15:19:51,838 INFO o.s.b.StartupInfoLogger {logStarted} [restartedMain] Started RestaurantReservationAaApplication in 12.444 seconds (process running for 14.601)
+2024-12-15 16:08:51,018 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m22s540ms).
+2024-12-15 16:09:19,040 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Retrograde clock change detected (housekeeper delta=28s23ms), soft-evicting connections from pool.
+2024-12-15 16:46:42,668 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m23s567ms).
+2024-12-15 16:52:51,214 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m38s532ms).
+2024-12-15 16:55:37,315 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m46s101ms).
+2024-12-15 17:10:51,798 INFO o.a.j.l.DirectJDKLog {log} [http-nio-0.0.0.0-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-15 17:10:51,803 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-12-15 17:10:51,830 INFO o.s.w.s.FrameworkServlet {initServletBean} [http-nio-0.0.0.0-8080-exec-1] Completed initialization in 24 ms
+2024-12-15 17:35:28,612 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-7] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]
+2024-12-15 17:36:06,373 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-9] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'orderId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: ":orderId"]
+2024-12-15 17:37:26,078 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-10] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'orderId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: ":orderId"]
+2024-12-15 17:38:01,413 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-5] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'menuitemId': Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: ":menuitemId"]
+2024-12-15 17:41:28,421 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-8] Resolved [java.lang.IllegalStateException: Invocation failure<EOL>Controller [com.example.restaurantreservationaa.controller.OrderController]<EOL>Method [public org.springframework.http.ResponseEntity<java.lang.Void> com.example.restaurantreservationaa.controller.OrderController.removeOrder(long) throws com.example.restaurantreservationaa.exception.OrderNotFoundException] with argument values:<EOL> [0] [type=java.lang.Long] [value=16] ]
+2024-12-15 17:50:12,137 WARN o.s.w.s.h.AbstractHandlerExceptionResolver {logException} [http-nio-0.0.0.0-8080-exec-9] Resolved [java.lang.IllegalStateException: Invocation failure<EOL>Controller [com.example.restaurantreservationaa.controller.CustomerController]<EOL>Method [public org.springframework.http.ResponseEntity<com.example.restaurantreservationaa.domain.Customer> com.example.restaurantreservationaa.controller.CustomerController.getCustomer(long) throws com.example.restaurantreservationaa.exception.CustomerNotFoundException] with argument values:<EOL> [0] [type=java.lang.Long] [value=1] ]
+2024-12-15 17:53:20,743 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15 17:53:20,802 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-12-15 17:53:20,808 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
