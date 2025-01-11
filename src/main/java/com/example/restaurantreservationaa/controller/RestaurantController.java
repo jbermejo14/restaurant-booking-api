@@ -1,17 +1,28 @@
 package com.example.restaurantreservationaa.controller;
 
+import com.example.restaurantreservationaa.domain.Order;
 import com.example.restaurantreservationaa.domain.Restaurant;
+import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantInDto;
+import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.service.RestaurantService;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantRegistrationDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/restaurants")
@@ -19,6 +30,7 @@ public class RestaurantController {
 
     @Autowired
     private RestaurantService restaurantService;
+    private final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
     @GetMapping
     public ResponseEntity<List<RestaurantOutDto>> getAll(@RequestParam(value = "name", defaultValue = "") String name,
@@ -33,6 +45,16 @@ public class RestaurantController {
         return new ResponseEntity<>(restaurant, HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Restaurant>> getRestaurantsByFilter(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "address", required = false) String address ,
+            @RequestParam(value = "phone", required = false) String phone) {
+
+        List<Restaurant> restaurants = restaurantService.getRestaurantsByFilter(name, address, phone);
+        return new ResponseEntity<>(restaurants, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<RestaurantOutDto> addRestaurant(@RequestBody RestaurantRegistrationDto restaurant) {
         RestaurantOutDto newRestaurant = restaurantService.add(restaurant);
@@ -45,8 +67,36 @@ public class RestaurantController {
         return ResponseEntity.noContent().build();
     }
 
-    @ExceptionHandler
-    public ResponseEntity<Void> handleRestaurantNotFoundException(RestaurantNotFoundException e) {
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    @PutMapping("/{restaurantId}")
+    public ResponseEntity<RestaurantOutDto> modifyCar(@PathVariable long restaurantId, @RequestBody RestaurantInDto car) throws RestaurantNotFoundException {
+        RestaurantOutDto modifiedCar = restaurantService.modify(restaurantId, car);
+        return new ResponseEntity<>(modifiedCar, HttpStatus.OK);
+    }
+
+    @ExceptionHandler(RestaurantNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleRestaurantNotFoundException(RestaurantNotFoundException exception) {
+        ErrorResponse error = ErrorResponse.generalError(404, exception.getMessage());
+        logger.error(exception.getMessage(), exception);
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> MethodArgumentNotValidException(MethodArgumentNotValidException exception) {
+        Map<String, String> errors = new HashMap<>();
+        exception.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String message = error.getDefaultMessage();
+            errors.put(fieldName, message);
+        });
+        logger.error(exception.getMessage(), exception);
+
+        return new ResponseEntity<>(ErrorResponse.validationError(errors), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
+        logger.error(exception.getMessage(), exception);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

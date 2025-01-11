@@ -1,0 +1,5 @@
+2024-12-21 00:03:02,432 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m42s659ms).
+2024-12-21 07:32:10,936 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h28m37s899ms).
+2024-12-21 10:25:51,933 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h53m41s476ms).
+2024-12-21 10:26:48,970 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Retrograde clock change detected (housekeeper delta=27s13ms), soft-evicting connections from pool.
+2024-12-21 13:32:49,041 WARN c.z.h.p.HikariPool$HouseKeeper {run} [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h29s818ms).

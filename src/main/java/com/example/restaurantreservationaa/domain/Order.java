@@ -33,7 +33,8 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "beverage_id"))
     @JsonIgnore
     private List<Beverage> beverages;
-
+    @Column
+    private String status;
     @Column
     private Date orderDate;
     @Column

@@ -16,6 +16,7 @@ import java.util.List;
 public class OrderInDto {
     private List<MenuItem> menuItems;
     private List<Beverage> beverages;
+    private String status;
     private Date orderDate;
     private double totalPrice;
 }

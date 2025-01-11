@@ -11,4 +11,5 @@ public class BeverageInDto {
     private String name;
     private String description;
     private Float price;
+    private String category;
 }

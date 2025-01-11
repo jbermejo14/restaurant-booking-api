@@ -1,14 +1,23 @@
 package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Beverage;
+import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.beverage.BeverageOutDto;
+import com.example.restaurantreservationaa.domain.dto.beverage.BeverageRegistrationDto;
 import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
 import com.example.restaurantreservationaa.service.BeverageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/beverages")
@@ -16,31 +25,67 @@ public class BeverageController {
 
     @Autowired
     private BeverageService beverageService;
+    private final Logger logger = LoggerFactory.getLogger(BeverageController.class);
 
     @GetMapping
-    public ResponseEntity<List<Beverage>> getAll() {
-        return new ResponseEntity<>(beverageService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<BeverageOutDto>> getAll(@RequestParam(value = "name", defaultValue = "") String name,
+                                                       @RequestParam(value = "description", defaultValue = "") String description)  {
+        List<BeverageOutDto> beverages = beverageService.getAll(name, description);
+        return new ResponseEntity<>(beverages, HttpStatus.OK);
     }
 
     @GetMapping("/{beverageId}")
-    public ResponseEntity<Beverage> getBeverage(long beverageId)  throws BeverageNotFoundException {
+    public ResponseEntity<Beverage> getBeverage(Long beverageId)  throws BeverageNotFoundException {
         Beverage beverage = beverageService.get(beverageId);
         return new ResponseEntity<>(beverage, HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Beverage>> getBeverageByFilter(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "description", required = false) String description ,
+            @RequestParam(value = "category", required = false) String category) {
+
+        List<Beverage> beverages = beverageService.getBeveragesByFilter(name, description, category);
+        return new ResponseEntity<>(beverages, HttpStatus.OK);
+    }
+
     @PostMapping
-    public ResponseEntity<Beverage> addBeverage(@RequestBody Beverage beverage) {
-        return new ResponseEntity<>(beverageService.add(beverage), HttpStatus.CREATED);
+    public ResponseEntity<BeverageOutDto> addBeverage(@RequestBody BeverageRegistrationDto beverage) {
+        BeverageOutDto newBeverage = beverageService.add(beverage);
+        return new ResponseEntity<>(newBeverage, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{beverageId}")
-    public ResponseEntity<Void> removeMenuItem(long beverageId) throws BeverageNotFoundException{
+    public ResponseEntity<Void> removeBeverage(@PathVariable Long beverageId) throws BeverageNotFoundException{
         beverageService.remove(beverageId);
         return ResponseEntity.noContent().build();
     }
 
-    @ExceptionHandler
-    public ResponseEntity<Void> handleBeverageNotFoundException(BeverageNotFoundException e) {
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    @ExceptionHandler(BeverageNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleBeverageNotFoundException(BeverageNotFoundException exception) {
+        ErrorResponse error = ErrorResponse.generalError(404, exception.getMessage());
+        logger.error(exception.getMessage(), exception);
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> MethodArgumentNotValidException(MethodArgumentNotValidException exception) {
+        Map<String, String> errors = new HashMap<>();
+        exception.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String message = error.getDefaultMessage();
+            errors.put(fieldName, message);
+        });
+        logger.error(exception.getMessage(), exception);
+
+        return new ResponseEntity<>(ErrorResponse.validationError(errors), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
+        logger.error(exception.getMessage(), exception);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

@@ -24,8 +24,10 @@ public class Beverage {
     private String description;
     @Column
     private Float price;
-
+    @Column
+    private String category;
     @ManyToMany(mappedBy = "beverages")
     @JsonIgnore
     private List<Order> orders;
 }
+

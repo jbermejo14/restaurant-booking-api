@@ -1,0 +1,911 @@
+openapi: 3.0.3
+info:
+  title: Restaurant API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  - url: 'https://restaurantapi.com'
+paths:
+  /restaurants:
+    get:
+      tags:
+        - RESTAURANTS
+      summary: Gets Restaurants.
+      description: Gets a list of restaurants.
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RestaurantOutDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /restaurants/{restaurantId}:
+    get:
+      tags:
+        - RESTAURANTS
+      summary: Restaurant Detail
+      description: Returns Restaurant Details
+      parameters:
+        - name: restaurantId
+          in: path
+          description: restaurant identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+    delete:
+      tags:
+        - RESTAURANTS
+      summary: Deletes a restaurant
+      description: Deletes the restaurant with the id indicated in the parameter
+      parameters:
+        - name: restaurantId
+          in: path
+          description: restaurant identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    put:
+      tags:
+        - RESTAURANTS
+      summary: Modifies a restaurant
+      description: Modify a detail from the restaurant
+      parameters:
+        - name: restaurantId
+          in: path
+          description: Restaurant Identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      requestBody:
+        description: New restaurant details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantInDto'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /orders:
+    get:
+      tags:
+        - ORDERS
+      summary: Gets orders.
+      description: Gets a list of orders.
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OrderOutDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /orders/{orderId}:
+    get:
+      tags:
+        - ORDERS
+      summary: Orders Detail
+      description: Returns Order Details
+      parameters:
+        - name: orderId
+          in: path
+          description: order identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+    delete:
+      tags:
+        - ORDERS
+      summary: Deletes an order
+      description: Deletes the order with the id indicated in the parameter
+      parameters:
+        - name: orderId
+          in: path
+          description: order identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    put:
+      tags:
+        - ORDERS
+      summary: Modifies an order
+      description: Modify a detail from the order
+      parameters:
+        - name: orderId
+          in: path
+          description: Order Identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      requestBody:
+        description: New order details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderInDto'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /customers:
+    get:
+      tags:
+        - CUSTOMERS
+      summary: Gets Customers.
+      description: Gets a list of customers.
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CustomerOutDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /customers/{customerId}:
+    get:
+      tags:
+        - CUSTOMER
+      summary: Customers Detail
+      description: Returns Customer Details
+      parameters:
+        - name: customerId
+          in: path
+          description: customer identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    delete:
+      tags:
+        - CUSTOMER
+      summary: Deletes a customer
+      description: Deletes the customer with the id indicated in the parameter
+      parameters:
+        - name: customerId
+          in: path
+          description: customer identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    put:
+      tags:
+        - CUSTOMERS
+      summary: Modifies a customer
+      description: Modify a detail from the customer
+      parameters:
+        - name: customerId
+          in: path
+          description: Customer Identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      requestBody:
+        description: New customer details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerInDto'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /menuitems:
+    get:
+      tags:
+        - MENU ITEMS
+      summary: Gets Menu Items.
+      description: Gets a list of menu items.
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MenuItemOutDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /menuitems/{menuitemId}:
+    get:
+      tags:
+        - MENU ITEM
+      summary: Menu item Detail
+      description: Returns Menu item Details
+      parameters:
+        - name: menuitemid
+          in: path
+          description: menu item identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItemOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+    delete:
+      tags:
+        - MENU ITEM
+      summary: Deletes a menu item
+      description: Deletes the menu item with the id indicated in the parameter
+      parameters:
+        - name: menuitemId
+          in: path
+          description: menu item identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      responses:
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    put:
+      tags:
+        - MENU ITEM
+      summary: Modifies a menu item
+      description: Modify a detail from the menu item
+      parameters:
+        - name: menuitemId
+          in: path
+          description: Menu Item Identifier
+          required: true
+          schema:
+            type: number
+            format: int64
+      requestBody:
+        description: New menu item details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItemInDto'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItemOutDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+components:
+  schemas:
+    RestaurantInDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Restaurant Name
+          example: Burguer Madness
+        address:
+          type: string
+          description: Restaurant Address
+          example: Calle Lopez Allue
+        phone:
+          type: string
+          description: Phone Number
+          example: 666666666
+    RestaurantOutDto:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+          description: Restaurant identifier
+          example: 1
+        name:
+          type: string
+          description: Restaurant Name
+          example: Burguer Madness
+        address:
+          type: string
+          description: Restaurant Address
+          example: Calle Lopez Allue
+        phone:
+          type: string
+          description: Phone number
+          example: 666666666
+    OrderInDto:
+      type: object
+      properties:
+        menuItems:
+          type: array
+          description: List of menu item IDs in the order.
+          items:
+            type: number
+            format: int64
+          example: [ 1, 2, 3 ]
+        beverages:
+          type: array
+          description: List of beverage IDs in the order.
+          items:
+            type: number
+            format: int64
+          example: [ 4, 5 ]
+        orderDate:
+          type: string
+          format: date-time
+          description: Date and time when the order was placed.
+          example: "2024-12-23T10:15:30Z"
+        totalPrice:
+          type: number
+          format: int32
+          description: Total price of the order.
+          example: 45
+    OrderOutDto:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+          description: Unique identifier for the order.
+          example: 123
+        menuItems:
+          type: array
+          description: List of menu items in the order.
+          items:
+            $ref: '#/components/schemas/MenuItem'
+        beverages:
+          type: array
+          description: List of beverages in the order.
+          items:
+            $ref: '#/components/schemas/Beverage'
+        orderDate:
+          type: string
+          format: date-time
+          description: Date and time when the order was placed.
+          example: "2024-12-23T10:15:30Z"
+        totalPrice:
+          type: number
+          format: int32
+          description: Total price of the order.
+          example: 45
+    CustomerInDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Customer Name.
+          example: John
+        email:
+          type: string
+          description: Customer Email.
+          example: johndoe@email.com
+        phone:
+          type: string
+          description: Customer Phone.
+          example: 666666666
+        password:
+          type: string
+          description: Customer Password.
+          example: "*******"
+        role:
+          type: string
+          description: Customer Role.
+          example: user
+        dateJoined:
+          type: string
+          format: date-time
+          description: Date and time when the user joined.
+          example: "2024-12-23T10:15:30Z"
+    CustomerOutDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Customer Name.
+          example: John
+        email:
+          type: string
+          description: Customer Email.
+          example: johndoe@email.com
+        phone:
+          type: string
+          description: Customer Phone.
+          example: 666666666
+        password:
+          type: string
+          description: Customer Password.
+          example: "*******"
+        role:
+          type: string
+          description: Customer Role.
+          example: user
+        dateJoined:
+          type: string
+          format: date-time
+          description: Date and time when the user joined.
+          example: "2024-12-23T10:15:30Z"
+    MenuItemInDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Menu Item Name.
+          example: John
+        description:
+          type: string
+          description: Menu Item Description.
+          example: johndoe@email.com
+        price:
+          type: integer
+          description: Menu Item Price.
+          example: 8.99
+        category:
+          type: string
+          description: Menu Item Category.
+          example: "*******"
+        isVegetarian:
+          type: boolean
+          description: Menu Item isVegetarian.
+          example: True
+    MenuItemOutDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Menu Item Name.
+          example: John
+        description:
+          type: string
+          description: Menu Item Description.
+          example: johndoe@email.com
+        price:
+          type: integer
+          description: Menu Item Price.
+          example: 8.99
+        category:
+          type: string
+          description: Menu Item Category.
+          example: "*******"
+        isVegetarian:
+          type: boolean
+          description: Menu Item isVegetarian.
+          example: True
+    Beverage:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+          description: Unique identifier for the beverage.
+          example: 1
+        name:
+          type: string
+          description: Name of the beverage.
+          example: "Coca-Cola"
+        description:
+          type: string
+          description: Description of the beverage.
+          example: "Coca-Cola Light"
+        price:
+          type: number
+          format: double
+          description: Price of the beverage.
+          example: 1.99
+    MenuItem:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+          description: Unique identifier for the menu item.
+          example: 1
+        name:
+          type: string
+          description: Name of the menu item.
+          example: "Burger"
+        description:
+          type: string
+          description: Description of the menu item.
+          example: "A juicy beef burger with lettuce, tomato, and cheese."
+        price:
+          type: number
+          format: double
+          description: Price of the menu item.
+          example: 10.99
+        category:
+          type: string
+          description: Category of the menu item (e.g., appetizer, main course, dessert).
+          example: "Main Course"
+        isVegetarian:
+          type: boolean
+          description: Indicates if the menu item is vegetarian.
+          example: true
+    BadRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code Error
+          example: 400
+        message:
+          type: string
+          description: Error Description
+          example: Bad Request
+        errorMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorMessage'
+    ErrorMessage:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          description: Field where the error is
+          example: name
+        message:
+          type: string
+          description: Error is asociated to the field
+          example: The field is required
+    NotFound:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code Error
+          example: 404
+        message:
+          type: string
+          description: Error Description
+          example: Not Found
+    InternalServerError:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code Error
+          example: 500
+        message:
+          type: string
+          description: Error Description
+          example: Internal Server Error
+
