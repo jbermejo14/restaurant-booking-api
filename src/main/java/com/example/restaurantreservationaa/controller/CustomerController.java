@@ -2,9 +2,13 @@ package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Customer;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.customer.CustomerInDto;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
+import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,10 +61,22 @@ public class CustomerController {
         return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
     }
 
+    @PutMapping("/{customerId}")
+    public ResponseEntity<CustomerOutDto> modifyCustomer(@PathVariable long customerId, @RequestBody CustomerInDto customer) throws CustomerNotFoundException {
+        CustomerOutDto modifiedCustomer = customerService.modify(customerId, customer);
+        return new ResponseEntity<>(modifiedCustomer, HttpStatus.OK);
+    }
+
     @DeleteMapping("/{customerId}")
     public ResponseEntity<Void> removeCustomer(@PathVariable long customerId) throws CustomerNotFoundException{
         customerService.remove(customerId);
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{customerId}")
+    public ResponseEntity<CustomerOutDto> partialUpdateCustomer(@PathVariable Long customerId, @RequestBody CustomerInDto customerDetails) throws CustomerNotFoundException {
+        CustomerOutDto updatedCustomer = customerService.partialUpdate(customerId, customerDetails);
+        return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
     }
 
     @ExceptionHandler(CustomerNotFoundException.class)

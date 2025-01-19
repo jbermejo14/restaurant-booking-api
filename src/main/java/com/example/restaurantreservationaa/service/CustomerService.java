@@ -1,12 +1,9 @@
 package com.example.restaurantreservationaa.service;
 
 import com.example.restaurantreservationaa.domain.Customer;
-import com.example.restaurantreservationaa.domain.MenuItem;
-import com.example.restaurantreservationaa.domain.Order;
+import com.example.restaurantreservationaa.domain.dto.customer.CustomerInDto;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerRegistrationDto;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
-import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import org.modelmapper.ModelMapper;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.repository.CustomerRepository;
@@ -71,8 +68,71 @@ public class CustomerService {
         });
     }
 
+    public CustomerOutDto modify(long customerId, CustomerInDto customerInDto) throws CustomerNotFoundException {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(CustomerNotFoundException::new);
+
+        modelMapper.map(customerInDto, customer);
+        customerRepository.save(customer);
+
+        return modelMapper.map(customer, CustomerOutDto.class);
+    }
+
+    public CustomerOutDto partialUpdate(Long customerId, CustomerInDto customerInDto) throws CustomerNotFoundException {
+        Customer customer = get(customerId); // Retrieve the existing customer
+
+        // Update only the fields that are present in the request
+        if (customerInDto.getName() != null) {
+            customer.setName(customerInDto.getName());
+        }
+        if (customerInDto.getEmail() != null) {
+            customer.setEmail(customerInDto.getEmail());
+        }
+        if (customerInDto.getPhone() != null) {
+            customer.setPhone(customerInDto.getPhone());
+        }
+        if (customerInDto.getPassword() != null) {
+            customer.setPassword(customerInDto.getPassword());
+        }
+        if (customerInDto.getRole() != null) {
+            customer.setRole(customerInDto.getRole());
+        }
+
+        // Save the updated customer
+        customerRepository.save(customer);
+
+        // Return the updated DTO
+        return modelMapper.map(customer, CustomerOutDto.class);
+    }
+
     public void remove(long customerId) throws CustomerNotFoundException {
         customerRepository.findById(customerId).orElseThrow(CustomerNotFoundException::new);
         customerRepository.deleteById(customerId);
+    }
+
+    // JPQL
+    public List<Customer> getCustomersByName(String name) {
+        return customerRepository.findByName(name);
+    }
+
+    public long getCustomerCountByRole(String role) {
+        return customerRepository.countByRole(role);
+    }
+
+    public List<Customer> getCustomersJoinedAfter(Date date) {
+        return customerRepository.findCustomersJoinedAfter(date);
+    }
+
+    // NATIVE SQL
+    public List<Customer> getCustomersByNameNative(String name) {
+        return customerRepository.findByNameNative(name);
+    }
+
+    public long getCustomerCountByRoleNative(String role) {
+        return customerRepository.countByRoleNative(role);
+    }
+
+    public List<Customer> getCustomersJoinedAfterNative(Date date) {
+        return customerRepository.findCustomersJoinedAfterNative(date);
     }
 }

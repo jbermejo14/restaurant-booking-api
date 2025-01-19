@@ -1,10 +1,8 @@
 package com.example.restaurantreservationaa.controller;
 
-import com.example.restaurantreservationaa.domain.Order;
 import com.example.restaurantreservationaa.domain.Restaurant;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantInDto;
-import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.service.RestaurantService;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
@@ -19,7 +17,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,9 +65,9 @@ public class RestaurantController {
     }
 
     @PutMapping("/{restaurantId}")
-    public ResponseEntity<RestaurantOutDto> modifyCar(@PathVariable long restaurantId, @RequestBody RestaurantInDto car) throws RestaurantNotFoundException {
-        RestaurantOutDto modifiedCar = restaurantService.modify(restaurantId, car);
-        return new ResponseEntity<>(modifiedCar, HttpStatus.OK);
+    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
+        RestaurantOutDto modifiedRestaurant = restaurantService.modify(restaurantId, restaurant);
+        return new ResponseEntity<>(modifiedRestaurant, HttpStatus.OK);
     }
 
     @ExceptionHandler(RestaurantNotFoundException.class)

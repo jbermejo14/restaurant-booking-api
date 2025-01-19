@@ -4,12 +4,16 @@ import com.example.restaurantreservationaa.domain.Beverage;
 import com.example.restaurantreservationaa.domain.Customer;
 import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.Restaurant;
+import com.example.restaurantreservationaa.domain.dto.beverage.BeverageInDto;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageOutDto;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.customer.CustomerInDto;
+import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
 import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
+import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.repository.BeverageRepository;
 import jakarta.persistence.criteria.Predicate;
 import org.modelmapper.ModelMapper;
@@ -71,6 +75,16 @@ public class BeverageService {
         Beverage newBeverage = beverageRepository.save(beverage);
 
         return modelMapper.map(newBeverage, BeverageOutDto.class);
+    }
+
+    public BeverageOutDto modify(long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
+        Beverage beverage = beverageRepository.findById(beverageId)
+                .orElseThrow(BeverageNotFoundException::new);
+
+        modelMapper.map(beverageInDto, beverage);
+        beverageRepository.save(beverage);
+
+        return modelMapper.map(beverage, BeverageOutDto.class);
     }
 
     public void remove(long beverageId) throws BeverageNotFoundException {

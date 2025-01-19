@@ -3,10 +3,14 @@ package com.example.restaurantreservationaa.controller;
 import com.example.restaurantreservationaa.domain.Beverage;
 import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
+import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
+import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.service.MenuItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,6 +66,12 @@ public class MenuItemController {
 
         List<MenuItem> menutiems = menuItemService.getMenuItemsByFilter(name, description, category);
         return new ResponseEntity<>(menutiems, HttpStatus.OK);
+    }
+
+    @PutMapping("/{menuItemId}")
+    public ResponseEntity<MenuItemOutDto> modifyMenuItem(@PathVariable long menuItemId, @RequestBody MenuItemInDto menuItem) throws MenuItemNotFoundException {
+        MenuItemOutDto modifiedMenuItem = menuItemService.modify(menuItemId, menuItem);
+        return new ResponseEntity<>(modifiedMenuItem, HttpStatus.OK);
     }
 
     @ExceptionHandler(MenuItemNotFoundException.class)

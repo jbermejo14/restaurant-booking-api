@@ -2,9 +2,13 @@ package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Beverage;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.beverage.BeverageInDto;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageOutDto;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.customer.CustomerInDto;
+import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
 import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
+import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.service.BeverageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +64,12 @@ public class BeverageController {
     public ResponseEntity<Void> removeBeverage(@PathVariable Long beverageId) throws BeverageNotFoundException{
         beverageService.remove(beverageId);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{beverageId}")
+    public ResponseEntity<BeverageOutDto> modifyBeverage(@PathVariable long beverageId, @RequestBody BeverageInDto beverage) throws BeverageNotFoundException {
+        BeverageOutDto modifiedBeverage = beverageService.modify(beverageId, beverage);
+        return new ResponseEntity<>(modifiedBeverage, HttpStatus.OK);
     }
 
     @ExceptionHandler(BeverageNotFoundException.class)

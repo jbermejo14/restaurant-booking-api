@@ -2,8 +2,12 @@ package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Order;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderRegistrationDto;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantInDto;
+import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
+import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.service.OrderService;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import org.slf4j.Logger;
@@ -58,6 +62,12 @@ public class OrderController {
     public ResponseEntity<OrderOutDto> addOrder(@RequestBody  OrderRegistrationDto order) {
         OrderOutDto newOrder = orderService.add(order);
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{orderId}")
+    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
+        OrderOutDto modifiedOrder = orderService.modify(orderId, order);
+        return new ResponseEntity<>(modifiedOrder, HttpStatus.OK);
     }
 
     @DeleteMapping("/{orderId}")
