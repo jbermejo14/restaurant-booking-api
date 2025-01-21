@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class MenuItemInDto {
     private String name;
     private String description;
-    private double price;
+    private Float price;
     private String category;
     private Boolean isVegetarian;
 }

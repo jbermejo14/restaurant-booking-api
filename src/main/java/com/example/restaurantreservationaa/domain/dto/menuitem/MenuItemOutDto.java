@@ -12,7 +12,7 @@ public class MenuItemOutDto {
     private long id;
     private String name;
     private String description;
-    private double price;
+    private Float price;
     private String category;
     private Boolean isVegetarian;
 }

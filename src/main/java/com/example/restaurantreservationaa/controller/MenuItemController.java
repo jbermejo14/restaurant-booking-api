@@ -3,11 +3,14 @@ package com.example.restaurantreservationaa.controller;
 import com.example.restaurantreservationaa.domain.Beverage;
 import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.beverage.BeverageInDto;
+import com.example.restaurantreservationaa.domain.dto.beverage.BeverageOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
+import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
@@ -69,8 +72,14 @@ public class MenuItemController {
     }
 
     @PutMapping("/{menuItemId}")
-    public ResponseEntity<MenuItemOutDto> modifyMenuItem(@PathVariable long menuItemId, @RequestBody MenuItemInDto menuItem) throws MenuItemNotFoundException {
+    public ResponseEntity<MenuItemOutDto> modifyMenuItem(@PathVariable Long menuItemId, @RequestBody MenuItemInDto menuItem) throws MenuItemNotFoundException {
         MenuItemOutDto modifiedMenuItem = menuItemService.modify(menuItemId, menuItem);
+        return new ResponseEntity<>(modifiedMenuItem, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{menuItemId}")
+    public ResponseEntity<MenuItemOutDto> partialUpdateMenuItem(@PathVariable Long menuItemId, @RequestBody MenuItemInDto menuItemInDto) throws MenuItemNotFoundException {
+        MenuItemOutDto modifiedMenuItem = menuItemService.partialUpdate(menuItemId, menuItemInDto);
         return new ResponseEntity<>(modifiedMenuItem, HttpStatus.OK);
     }
 

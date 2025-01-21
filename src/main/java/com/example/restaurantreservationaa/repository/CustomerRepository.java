@@ -25,8 +25,8 @@ public interface CustomerRepository extends CrudRepository<Customer, Long>, JpaR
     @Query("SELECT COUNT(c) FROM customers c WHERE c.role = :role")
     long countByRole(@Param("role") String role);
 
-    @Query("SELECT c FROM customers c WHERE c.dateJoined > :date")
-    List<Customer> findCustomersJoinedAfter(@Param("date") Date date);
+    @Query("SELECT c FROM customers c WHERE c.dateJoined > :dateJoined")
+    List<Customer> findCustomersJoinedAfter(@Param("dateJoined") Date dateJoined);
 
     // Native SQL Queries
     @Query(value = "SELECT * FROM customers WHERE name = :name", nativeQuery = true)
@@ -35,7 +35,7 @@ public interface CustomerRepository extends CrudRepository<Customer, Long>, JpaR
     @Query(value = "SELECT COUNT(*) FROM customers WHERE role = :role", nativeQuery = true)
     long countByRoleNative(@Param("role") String role);
 
-    @Query(value = "SELECT * FROM customers WHERE date_joined > :date", nativeQuery = true)
-    List<Customer> findCustomersJoinedAfterNative(@Param("date") Date date);
+    @Query(value = "SELECT * FROM customers WHERE date_joined > :dateJoined", nativeQuery = true)
+    List<Customer> findCustomersJoinedAfterNative(@Param("dateJoined") Date dateJoined);
 
 }

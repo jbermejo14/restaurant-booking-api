@@ -1,9 +1,13 @@
 package com.example.restaurantreservationaa.service;
 
+import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.Order;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderRegistrationDto;
+import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.repository.OrderRepository;
 import jakarta.persistence.criteria.Predicate;
@@ -23,7 +27,7 @@ public class OrderService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<OrderOutDto> getAll(double totalPrice, Date orderDate) {
+    public List<OrderOutDto> getAll(Float totalPrice, Date orderDate) {
         List<Order> orderList;
 
         if (totalPrice == 0.0 && orderDate == null) {
@@ -44,7 +48,7 @@ public class OrderService {
         return orderRepository.findById(id).orElseThrow(OrderNotFoundException::new);
     }
 
-    public List<Order> getOrdersByFilter(Date orderDate, Double totalPrice, String status) {
+    public List<Order> getOrdersByFilter(Date orderDate, Float totalPrice, String status) {
         return orderRepository.findAll((root, query, criteriaBuilder) -> {
             Predicate predicate = criteriaBuilder.conjunction();
 
@@ -71,7 +75,7 @@ public class OrderService {
         return modelMapper.map(newOrder, OrderOutDto.class);
     }
 
-    public OrderOutDto modify(long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
+    public OrderOutDto modify(Long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(OrderNotFoundException::new);
 
@@ -80,6 +84,36 @@ public class OrderService {
 
         return modelMapper.map(order, OrderOutDto.class);
     }
+
+    public OrderOutDto partialUpdate(Long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
+        // Retrieve the existing order
+        Order order = get(orderId);
+
+        // Update only the fields that are present in the request
+        if (orderInDto.getStatus() != null) {
+            order.setStatus(orderInDto.getStatus());
+        }
+        if (orderInDto.getOrderDate() != null) {
+            order.setOrderDate(orderInDto.getOrderDate());
+        }
+        if (orderInDto.getTotalPrice() != null) {
+            order.setTotalPrice(orderInDto.getTotalPrice());
+        }
+        if (orderInDto.getMenuItems() != null && !orderInDto.getMenuItems().isEmpty()) {
+            order.setMenuItems(orderInDto.getMenuItems());
+        }
+        if (orderInDto.getBeverages() != null && !orderInDto.getBeverages().isEmpty()) {
+            order.setBeverages(orderInDto.getBeverages());
+        }
+
+        // Save the updated order
+        orderRepository.save(order);
+
+        // Return the updated DTO
+        return modelMapper.map(order, OrderOutDto.class);
+    }
+
+
 
     public void remove(long orderId) throws OrderNotFoundException {
         orderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);

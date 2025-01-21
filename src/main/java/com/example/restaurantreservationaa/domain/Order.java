@@ -38,5 +38,5 @@ public class Order {
     @Column
     private Date orderDate;
     @Column
-    private int totalPrice;
+    private Float totalPrice;
 }
