@@ -1,9 +1,13 @@
 package com.example.restaurantreservationaa.service;
 
+import com.example.restaurantreservationaa.domain.Order;
 import com.example.restaurantreservationaa.domain.Restaurant;
+import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
+import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantInDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantRegistrationDto;
+import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.repository.RestaurantRepository;
 import jakarta.persistence.criteria.Predicate;
@@ -72,13 +76,35 @@ public class RestaurantService {
         return modelMapper.map(newRestaurant, RestaurantOutDto.class);
     }
 
-    public RestaurantOutDto modify(long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
+    public RestaurantOutDto modify(Long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
                 .orElseThrow(RestaurantNotFoundException::new);
 
         modelMapper.map(restaurantInDto, restaurant);
         restaurantRepository.save(restaurant);
 
+        return modelMapper.map(restaurant, RestaurantOutDto.class);
+    }
+
+    public RestaurantOutDto partialUpdate(Long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
+        // Retrieve the existing restaurant
+        Restaurant restaurant = get(restaurantId);
+
+        // Update only the fields that are present in the request
+        if (restaurantInDto.getName() != null) {
+            restaurant.setName(restaurantInDto.getName());
+        }
+        if (restaurantInDto.getAddress() != null) {
+            restaurant.setAddress(restaurantInDto.getAddress());
+        }
+        if (restaurantInDto.getPhone() != null) {
+            restaurant.setPhone(restaurantInDto.getPhone());
+        }
+
+        // Save the updated restaurant
+        restaurantRepository.save(restaurant);
+
+        // Return the updated DTO
         return modelMapper.map(restaurant, RestaurantOutDto.class);
     }
 

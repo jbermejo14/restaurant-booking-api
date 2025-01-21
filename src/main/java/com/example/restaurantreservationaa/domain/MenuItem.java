@@ -23,7 +23,7 @@ public class MenuItem {
     @Column
     private String description;
     @Column
-    private double price;
+    private Float price;
     @Column
     private String category;
     @Column

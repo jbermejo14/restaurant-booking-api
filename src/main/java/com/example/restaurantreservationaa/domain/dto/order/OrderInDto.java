@@ -18,5 +18,5 @@ public class OrderInDto {
     private List<Beverage> beverages;
     private String status;
     private Date orderDate;
-    private double totalPrice;
+    private Float totalPrice;
 }

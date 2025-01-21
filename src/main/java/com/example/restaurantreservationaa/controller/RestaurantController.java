@@ -2,7 +2,10 @@ package com.example.restaurantreservationaa.controller;
 
 import com.example.restaurantreservationaa.domain.Restaurant;
 import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
+import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantInDto;
+import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.service.RestaurantService;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
@@ -65,8 +68,14 @@ public class RestaurantController {
     }
 
     @PutMapping("/{restaurantId}")
-    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
+    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
         RestaurantOutDto modifiedRestaurant = restaurantService.modify(restaurantId, restaurant);
+        return new ResponseEntity<>(modifiedRestaurant, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{restaurantId}")
+    public ResponseEntity<RestaurantOutDto> partialUpdateRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
+        RestaurantOutDto modifiedRestaurant = restaurantService.partialUpdate(restaurantId, restaurantInDto);
         return new ResponseEntity<>(modifiedRestaurant, HttpStatus.OK);
     }
 

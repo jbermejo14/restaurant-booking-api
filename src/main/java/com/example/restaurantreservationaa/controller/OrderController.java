@@ -34,7 +34,7 @@ public class OrderController {
     private final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
     @GetMapping
-    public ResponseEntity<List<OrderOutDto>> getAll(@RequestParam(value = "totalPrice", required = false, defaultValue = "0.0") double totalPrice,
+    public ResponseEntity<List<OrderOutDto>> getAll(@RequestParam(value = "totalPrice", required = false, defaultValue = "0.0") Float totalPrice,
                                                     @RequestParam(value = "orderDate", required = false)
                                                     @DateTimeFormat(pattern = "yyyy-MM-dd") Date orderDate) {
 
@@ -51,7 +51,7 @@ public class OrderController {
     @GetMapping("/search")
     public ResponseEntity<List<Order>> getOrderByFilter(
             @RequestParam(value = "orderDate", required = false) Date orderDate,
-            @RequestParam(value = "totalPrice", required = false) double totalPrice ,
+            @RequestParam(value = "totalPrice", required = false) Float totalPrice ,
             @RequestParam(value = "status", required = false) String status) {
 
         List<Order> orders = orderService.getOrdersByFilter(orderDate, totalPrice, status);
@@ -65,8 +65,14 @@ public class OrderController {
     }
 
     @PutMapping("/{orderId}")
-    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
+    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable Long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
         OrderOutDto modifiedOrder = orderService.modify(orderId, order);
+        return new ResponseEntity<>(modifiedOrder, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{orderId}")
+    public ResponseEntity<OrderOutDto> partialUpdateOrder(@PathVariable Long orderId, @RequestBody OrderInDto orderInDto) throws OrderNotFoundException {
+        OrderOutDto modifiedOrder = orderService.partialUpdate(orderId, orderInDto);
         return new ResponseEntity<>(modifiedOrder, HttpStatus.OK);
     }
 

@@ -67,9 +67,15 @@ public class BeverageController {
     }
 
     @PutMapping("/{beverageId}")
-    public ResponseEntity<BeverageOutDto> modifyBeverage(@PathVariable long beverageId, @RequestBody BeverageInDto beverage) throws BeverageNotFoundException {
+    public ResponseEntity<BeverageOutDto> modifyBeverage(@PathVariable Long beverageId, @RequestBody BeverageInDto beverage) throws BeverageNotFoundException {
         BeverageOutDto modifiedBeverage = beverageService.modify(beverageId, beverage);
         return new ResponseEntity<>(modifiedBeverage, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{beverageId}")
+    public ResponseEntity<BeverageOutDto> partialUpdateBeverage(@PathVariable Long beverageId, @RequestBody BeverageInDto beverageInDto) throws BeverageNotFoundException {
+        BeverageOutDto updatedBeverage = beverageService.partialUpdate(beverageId, beverageInDto);
+        return new ResponseEntity<>(updatedBeverage, HttpStatus.OK);
     }
 
     @ExceptionHandler(BeverageNotFoundException.class)

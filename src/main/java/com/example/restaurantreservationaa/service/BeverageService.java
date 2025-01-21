@@ -77,7 +77,7 @@ public class BeverageService {
         return modelMapper.map(newBeverage, BeverageOutDto.class);
     }
 
-    public BeverageOutDto modify(long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
+    public BeverageOutDto modify(Long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
         Beverage beverage = beverageRepository.findById(beverageId)
                 .orElseThrow(BeverageNotFoundException::new);
 
@@ -86,6 +86,32 @@ public class BeverageService {
 
         return modelMapper.map(beverage, BeverageOutDto.class);
     }
+
+    public BeverageOutDto partialUpdate(Long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
+        // Retrieve the existing beverage
+        Beverage beverage = get(beverageId);
+
+        // Update only the fields that are present in the request
+        if (beverageInDto.getName() != null) {
+            beverage.setName(beverageInDto.getName());
+        }
+        if (beverageInDto.getDescription() != null) {
+            beverage.setDescription(beverageInDto.getDescription());
+        }
+        if (beverageInDto.getPrice() != null) {
+            beverage.setPrice(beverageInDto.getPrice());
+        }
+        if (beverageInDto.getCategory() != null) {
+            beverage.setCategory(beverageInDto.getCategory());
+        }
+
+        // Save the updated beverage
+        beverageRepository.save(beverage);
+
+        // Return the updated DTO
+        return modelMapper.map(beverage, BeverageOutDto.class);
+    }
+
 
     public void remove(long beverageId) throws BeverageNotFoundException {
         beverageRepository.findById(beverageId).orElseThrow(BeverageNotFoundException::new);
