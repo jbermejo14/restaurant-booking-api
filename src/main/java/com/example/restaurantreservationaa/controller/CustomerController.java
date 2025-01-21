@@ -5,10 +5,7 @@ import com.example.restaurantreservationaa.domain.dto.ErrorResponse;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerInDto;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
 import com.example.restaurantreservationaa.domain.dto.customer.CustomerRegistrationDto;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
-import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,6 +76,43 @@ public class CustomerController {
     public ResponseEntity<CustomerOutDto> partialUpdateCustomer(@PathVariable Long customerId, @RequestBody CustomerInDto customerDetails) throws CustomerNotFoundException {
         CustomerOutDto updatedCustomer = customerService.partialUpdate(customerId, customerDetails);
         return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
+    }
+
+    @GetMapping("/searchByName")
+    public ResponseEntity<List<Customer>> getCustomersByName(@RequestParam String name) {
+        List<Customer> customers = customerService.getCustomersByName(name);
+        return ResponseEntity.ok(customers);
+    }
+
+    @GetMapping("/countByRole")
+    public ResponseEntity<Long> getCustomerCountByRole(@RequestParam String role) {
+        long count = customerService.getCustomerCountByRole(role);
+        return ResponseEntity.ok(count);
+    }
+
+    @GetMapping("/joinedAfter")
+    public ResponseEntity<List<Customer>> getCustomersJoinedAfter(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateJoined) {
+        List<Customer> customers = customerService.getCustomersJoinedAfter(dateJoined);
+        return ResponseEntity.ok(customers);
+    }
+
+    // Métodos para las consultas SQL nativas
+    @GetMapping("/searchByNameNative")
+    public ResponseEntity<List<Customer>> getCustomersByNameNative(@RequestParam String name) {
+        List<Customer> customers = customerService.getCustomersByNameNative(name);
+        return ResponseEntity.ok(customers);
+    }
+
+    @GetMapping("/countByRoleNative")
+    public ResponseEntity<Long> getCustomerCountByRoleNative(@RequestParam String role) {
+        long count = customerService.getCustomerCountByRoleNative(role);
+        return ResponseEntity.ok(count);
+    }
+
+    @GetMapping("/joinedAfterNative")
+    public ResponseEntity<List<Customer>> getCustomersJoinedAfterNative(@RequestParam  @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateJoined) {
+        List<Customer> customers = customerService.getCustomersJoinedAfterNative(dateJoined);
+        return ResponseEntity.ok(customers);
     }
 
     @ExceptionHandler(CustomerNotFoundException.class)
