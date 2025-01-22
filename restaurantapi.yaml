@@ -315,7 +315,7 @@ paths:
   /customers:
     get:
       tags:
-        - CUSTOMERS
+        - CUSTOMER
       summary: Gets Customers.
       description: Gets a list of customers.
       responses:
@@ -421,7 +421,7 @@ paths:
                 $ref: '#/components/schemas/InternalServerError'
     put:
       tags:
-        - CUSTOMERS
+        - CUSTOMER
       summary: Modifies a customer
       description: Modify a detail from the customer
       parameters:
@@ -466,7 +466,7 @@ paths:
   /menuitems:
     get:
       tags:
-        - MENU ITEMS
+        - MENU ITEM
       summary: Gets Menu Items.
       description: Gets a list of menu items.
       responses:
@@ -633,6 +633,13 @@ components:
           type: string
           description: Phone Number
           example: 666666666
+      example:
+        - name: Pasta Paradise
+          address: 123 Pasta Lane
+          phone: 5551234567
+        - name: Sushi World
+          address: 456 Sushi Street
+          phone: 5559876543
     RestaurantOutDto:
       type: object
       properties:
@@ -653,6 +660,15 @@ components:
           type: string
           description: Phone number
           example: 666666666
+      example:
+        - id: 1
+          name: Pasta Paradise
+          address: 123 Pasta Lane
+          phone: 5551234567
+        - id: 2
+          name: Sushi World
+          address: 456 Sushi Street
+          phone: 5559876543
     OrderInDto:
       type: object
       properties:
@@ -680,6 +696,15 @@ components:
           format: int32
           description: Total price of the order.
           example: 45
+      example:
+        - menuItems: [ 1, 2, 3 ]
+          beverages: [ 4, 5 ]
+          orderDate: "2024-12-23T10:15:30Z"
+          totalPrice: 45
+        - menuItems: [ 6, 7 ]
+          beverages: [ 8 ]
+          orderDate: "2024-12-24T12:00:00Z"
+          totalPrice: 30
     OrderOutDto:
       type: object
       properties:
@@ -708,6 +733,37 @@ components:
           format: int32
           description: Total price of the order.
           example: 45
+      example:
+        - id: 123
+          menuItems:
+            - id: 1
+              name: Burger
+              description: A juicy beef burger with lettuce, tomato, and cheese.
+              price: 10.99
+              category: Main Course
+              isVegetarian: false
+          beverages:
+            - id: 4
+              name: Coca-Cola
+              description: Coca-Cola Light
+              price: 1.99
+          orderDate: "2024-12-23T10:15:30Z"
+          totalPrice: 45
+        - id: 124
+          menuItems:
+            - id: 2
+              name: Veggie Burger
+              description: A delicious vegetarian burger with fresh vegetables.
+              price: 9.99
+              category: Main Course
+              isVegetarian: true
+          beverages:
+            - id: 5
+              name: Sprite
+              description: Lemon-lime flavored soda
+              price: 1.50
+          orderDate: "2024-12-24T12:00:00Z"
+          totalPrice: 31.49
     CustomerInDto:
       type: object
       properties:
@@ -736,6 +792,19 @@ components:
           format: date-time
           description: Date and time when the user joined.
           example: "2024-12-23T10:15:30Z"
+      example:
+        - name: Alice
+          email: alice@email.com
+          phone: 5551234567
+          password: "password123"
+          role: user
+          dateJoined: "2024-12-23T10:15:30Z"
+        - name: Bob
+          email: bob@email.com
+          phone: 5559876543
+          password: "securepassword"
+          role: admin
+          dateJoined: "2024-12-24T12:00:00Z"
     CustomerOutDto:
       type: object
       properties:
@@ -764,52 +833,89 @@ components:
           format: date-time
           description: Date and time when the user joined.
           example: "2024-12-23T10:15:30Z"
+      example:
+        - name: Alice
+          email: alice@email.com
+          phone: 5551234567
+          password: "password123"
+          role: user
+          dateJoined: "2024-12-23T10:15:30Z"
+        - name: Bob
+          email: bob@email.com
+          phone: 5559876543
+          password: "securepassword"
+          role: admin
+          dateJoined: "2024-12-24T12:00:00Z"
     MenuItemInDto:
       type: object
       properties:
         name:
           type: string
           description: Menu Item Name.
-          example: John
+          example: "Cheese Pizza"
         description:
           type: string
           description: Menu Item Description.
-          example: johndoe@email.com
+          example: "A delicious cheese pizza with fresh ingredients."
         price:
-          type: integer
+          type: number
+          format: double
           description: Menu Item Price.
           example: 8.99
         category:
           type: string
           description: Menu Item Category.
-          example: "*******"
+          example: "Main Course"
         isVegetarian:
           type: boolean
           description: Menu Item isVegetarian.
-          example: True
+          example: true
+      example:
+        - name: "Cheese Pizza"
+          description: "A delicious cheese pizza with fresh ingredients."
+          price: 8.99
+          category: "Main Course"
+          isVegetarian: true
+        - name: "Spaghetti Bolognese"
+          description: "Classic Italian pasta with meat sauce."
+          price: 10.99
+          category: "Main Course"
+          isVegetarian: false
     MenuItemOutDto:
       type: object
       properties:
         name:
           type: string
           description: Menu Item Name.
-          example: John
+          example: "Cheese Pizza"
         description:
           type: string
           description: Menu Item Description.
-          example: johndoe@email.com
+          example: "A delicious cheese pizza with fresh ingredients."
         price:
-          type: integer
+          type: number
+          format: double
           description: Menu Item Price.
           example: 8.99
         category:
           type: string
           description: Menu Item Category.
-          example: "*******"
+          example: "Main Course"
         isVegetarian:
           type: boolean
           description: Menu Item isVegetarian.
-          example: True
+          example: true
+      example:
+        - name: "Cheese Pizza"
+          description: "A delicious cheese pizza with fresh ingredients."
+          price: 8.99
+          category: "Main Course"
+          isVegetarian: true
+        - name: "Spaghetti Bolognese"
+          description: "Classic Italian pasta with meat sauce."
+          price: 10.99
+          category: "Main Course"
+          isVegetarian: false
     Beverage:
       type: object
       properties:
