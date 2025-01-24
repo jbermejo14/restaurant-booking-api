@@ -1,13 +1,9 @@
 package com.example.restaurantreservationaa.service;
 
-import com.example.restaurantreservationaa.domain.Order;
 import com.example.restaurantreservationaa.domain.Restaurant;
-import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
-import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantInDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantRegistrationDto;
-import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.exception.RestaurantNotFoundException;
 import com.example.restaurantreservationaa.repository.RestaurantRepository;
 import jakarta.persistence.criteria.Predicate;
@@ -16,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -76,7 +71,7 @@ public class RestaurantService {
         return modelMapper.map(newRestaurant, RestaurantOutDto.class);
     }
 
-    public RestaurantOutDto modify(Long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
+    public RestaurantOutDto modify(long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
                 .orElseThrow(RestaurantNotFoundException::new);
 
@@ -86,7 +81,7 @@ public class RestaurantService {
         return modelMapper.map(restaurant, RestaurantOutDto.class);
     }
 
-    public RestaurantOutDto partialUpdate(Long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
+    public RestaurantOutDto partialUpdate(long restaurantId, RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
         // Retrieve the existing restaurant
         Restaurant restaurant = get(restaurantId);
 

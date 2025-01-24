@@ -1,14 +1,11 @@
 package com.example.restaurantreservationaa.service;
 
 
-import com.example.restaurantreservationaa.domain.Beverage;
+
 import com.example.restaurantreservationaa.domain.MenuItem;
-import com.example.restaurantreservationaa.domain.dto.beverage.BeverageInDto;
-import com.example.restaurantreservationaa.domain.dto.beverage.BeverageOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
-import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
 import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.repository.MenuItemRepository;
 import jakarta.persistence.criteria.Predicate;
@@ -73,7 +70,7 @@ public class MenuItemService {
         return modelMapper.map(newMenuItem, MenuItemOutDto.class);
     }
 
-    public MenuItemOutDto modify(Long menuItemId, MenuItemInDto menuItemInDto) throws MenuItemNotFoundException {
+    public MenuItemOutDto modify(long menuItemId, MenuItemInDto menuItemInDto) throws MenuItemNotFoundException {
         MenuItem menuItem = menuItemRepository.findById(menuItemId)
                 .orElseThrow(MenuItemNotFoundException::new);
 
@@ -83,7 +80,7 @@ public class MenuItemService {
         return modelMapper.map(menuItem, MenuItemOutDto.class);
     }
 
-    public MenuItemOutDto partialUpdate(Long menuItemId, MenuItemInDto menuItemInDto) throws MenuItemNotFoundException {
+    public MenuItemOutDto partialUpdate(long menuItemId, MenuItemInDto menuItemInDto) throws MenuItemNotFoundException {
         // Retrieve the existing menu item
         MenuItem menuItem = get(menuItemId);
 

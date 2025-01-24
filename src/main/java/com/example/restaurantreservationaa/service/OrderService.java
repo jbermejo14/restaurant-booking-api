@@ -1,13 +1,9 @@
 package com.example.restaurantreservationaa.service;
 
-import com.example.restaurantreservationaa.domain.MenuItem;
 import com.example.restaurantreservationaa.domain.Order;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemInDto;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderInDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderRegistrationDto;
-import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
 import com.example.restaurantreservationaa.repository.OrderRepository;
 import jakarta.persistence.criteria.Predicate;
@@ -75,7 +71,7 @@ public class OrderService {
         return modelMapper.map(newOrder, OrderOutDto.class);
     }
 
-    public OrderOutDto modify(Long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
+    public OrderOutDto modify(long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(OrderNotFoundException::new);
 
@@ -85,7 +81,7 @@ public class OrderService {
         return modelMapper.map(order, OrderOutDto.class);
     }
 
-    public OrderOutDto partialUpdate(Long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
+    public OrderOutDto partialUpdate(long orderId, OrderInDto orderInDto) throws OrderNotFoundException {
         // Retrieve the existing order
         Order order = get(orderId);
 
@@ -112,8 +108,6 @@ public class OrderService {
         // Return the updated DTO
         return modelMapper.map(order, OrderOutDto.class);
     }
-
-
 
     public void remove(long orderId) throws OrderNotFoundException {
         orderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);

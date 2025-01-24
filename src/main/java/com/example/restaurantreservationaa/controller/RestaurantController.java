@@ -68,13 +68,13 @@ public class RestaurantController {
     }
 
     @PutMapping("/{restaurantId}")
-    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
+    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
         RestaurantOutDto modifiedRestaurant = restaurantService.modify(restaurantId, restaurant);
         return new ResponseEntity<>(modifiedRestaurant, HttpStatus.OK);
     }
 
     @PatchMapping("/{restaurantId}")
-    public ResponseEntity<RestaurantOutDto> partialUpdateRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
+    public ResponseEntity<RestaurantOutDto> partialUpdateRestaurant(@PathVariable long restaurantId, @RequestBody RestaurantInDto restaurantInDto) throws RestaurantNotFoundException {
         RestaurantOutDto modifiedRestaurant = restaurantService.partialUpdate(restaurantId, restaurantInDto);
         return new ResponseEntity<>(modifiedRestaurant, HttpStatus.OK);
     }
@@ -99,10 +99,10 @@ public class RestaurantController {
         return new ResponseEntity<>(ErrorResponse.validationError(errors), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
-        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
-        logger.error(exception.getMessage(), exception);
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+//        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
+//        logger.error(exception.getMessage(), exception);
+//        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 }

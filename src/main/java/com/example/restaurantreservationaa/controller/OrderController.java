@@ -62,13 +62,13 @@ public class OrderController {
     }
 
     @PutMapping("/{orderId}")
-    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable Long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
+    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
         OrderOutDto modifiedOrder = orderService.modify(orderId, order);
         return new ResponseEntity<>(modifiedOrder, HttpStatus.OK);
     }
 
     @PatchMapping("/{orderId}")
-    public ResponseEntity<OrderOutDto> partialUpdateOrder(@PathVariable Long orderId, @RequestBody OrderInDto orderInDto) throws OrderNotFoundException {
+    public ResponseEntity<OrderOutDto> partialUpdateOrder(@PathVariable long orderId, @RequestBody OrderInDto orderInDto) throws OrderNotFoundException {
         OrderOutDto modifiedOrder = orderService.partialUpdate(orderId, orderInDto);
         return new ResponseEntity<>(modifiedOrder, HttpStatus.OK);
     }
@@ -99,10 +99,10 @@ public class OrderController {
         return new ResponseEntity<>(ErrorResponse.validationError(errors), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
-        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
-        logger.error(exception.getMessage(), exception);
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+//        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
+//        logger.error(exception.getMessage(), exception);
+//        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 }

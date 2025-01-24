@@ -40,7 +40,8 @@ public class CustomerService {
     }
 
     public Customer get(long id) throws CustomerNotFoundException {
-        return customerRepository.findById(id).orElseThrow(CustomerNotFoundException::new);
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException("Customer with ID " + id + " does not exist"));
     }
 
     public CustomerOutDto add(CustomerRegistrationDto customerInDto) {
@@ -78,7 +79,7 @@ public class CustomerService {
         return modelMapper.map(customer, CustomerOutDto.class);
     }
 
-    public CustomerOutDto partialUpdate(Long customerId, CustomerInDto customerInDto) throws CustomerNotFoundException {
+    public CustomerOutDto partialUpdate(long customerId, CustomerInDto customerInDto) throws CustomerNotFoundException {
         Customer customer = get(customerId); // Retrieve the existing customer
 
         // Update only the fields that are present in the request

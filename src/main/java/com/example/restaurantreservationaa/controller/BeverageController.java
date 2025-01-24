@@ -39,7 +39,7 @@ public class BeverageController {
     }
 
     @GetMapping("/{beverageId}")
-    public ResponseEntity<Beverage> getBeverage(Long beverageId)  throws BeverageNotFoundException {
+    public ResponseEntity<Beverage> getBeverage(@PathVariable long beverageId)  throws BeverageNotFoundException {
         Beverage beverage = beverageService.get(beverageId);
         return new ResponseEntity<>(beverage, HttpStatus.OK);
     }
@@ -61,7 +61,7 @@ public class BeverageController {
     }
 
     @DeleteMapping("/{beverageId}")
-    public ResponseEntity<Void> removeBeverage(@PathVariable Long beverageId) throws BeverageNotFoundException{
+    public ResponseEntity<Void> removeBeverage(@PathVariable long beverageId) throws BeverageNotFoundException{
         beverageService.remove(beverageId);
         return ResponseEntity.noContent().build();
     }
@@ -98,10 +98,10 @@ public class BeverageController {
         return new ResponseEntity<>(ErrorResponse.validationError(errors), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
-        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
-        logger.error(exception.getMessage(), exception);
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+//        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
+//        logger.error(exception.getMessage(), exception);
+//        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 }

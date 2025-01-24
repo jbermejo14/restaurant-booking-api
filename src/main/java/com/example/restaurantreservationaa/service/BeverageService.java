@@ -1,19 +1,11 @@
 package com.example.restaurantreservationaa.service;
 
 import com.example.restaurantreservationaa.domain.Beverage;
-import com.example.restaurantreservationaa.domain.Customer;
-import com.example.restaurantreservationaa.domain.MenuItem;
-import com.example.restaurantreservationaa.domain.Restaurant;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageInDto;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageOutDto;
 import com.example.restaurantreservationaa.domain.dto.beverage.BeverageRegistrationDto;
-import com.example.restaurantreservationaa.domain.dto.customer.CustomerInDto;
-import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
-import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
-import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
 import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
-import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
+
 import com.example.restaurantreservationaa.repository.BeverageRepository;
 import jakarta.persistence.criteria.Predicate;
 import org.modelmapper.ModelMapper;
@@ -77,7 +69,7 @@ public class BeverageService {
         return modelMapper.map(newBeverage, BeverageOutDto.class);
     }
 
-    public BeverageOutDto modify(Long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
+    public BeverageOutDto modify(long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
         Beverage beverage = beverageRepository.findById(beverageId)
                 .orElseThrow(BeverageNotFoundException::new);
 
@@ -87,7 +79,7 @@ public class BeverageService {
         return modelMapper.map(beverage, BeverageOutDto.class);
     }
 
-    public BeverageOutDto partialUpdate(Long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
+    public BeverageOutDto partialUpdate(long beverageId, BeverageInDto beverageInDto) throws BeverageNotFoundException {
         // Retrieve the existing beverage
         Beverage beverage = get(beverageId);
 

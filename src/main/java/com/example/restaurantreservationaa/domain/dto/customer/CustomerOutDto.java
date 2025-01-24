@@ -16,4 +16,5 @@ public class CustomerOutDto {
     private String phone;
     private String password;
     private String role;
+    private Date dateJoined;
 }

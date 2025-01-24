@@ -31,7 +31,7 @@ public class CustomerController {
     private final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
     @GetMapping
-    public ResponseEntity<List<CustomerOutDto>> getAll(@RequestParam(value = "name", required = false, defaultValue = "0.0") String name,
+    public ResponseEntity<List<CustomerOutDto>> getAll(@RequestParam(value = "name", required = false) String name,
                                                     @RequestParam(value = "email", required = false) String email) {
 
         List<CustomerOutDto> customers = customerService.getAll(name, email);
@@ -39,7 +39,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{customerId}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable Long customerId)  throws CustomerNotFoundException {
+    public ResponseEntity<Customer> getCustomer(@PathVariable long customerId) throws CustomerNotFoundException {
         Customer customer = customerService.get(customerId);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
@@ -134,11 +134,11 @@ public class CustomerController {
 
         return new ResponseEntity<>(ErrorResponse.validationError(errors), HttpStatus.BAD_REQUEST);
     }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
-        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
-        logger.error(exception.getMessage(), exception);
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+//        ErrorResponse error = ErrorResponse.generalError(500, "Internal Server Error");
+//        logger.error(exception.getMessage(), exception);
+//        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 }
