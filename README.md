@@ -15,8 +15,8 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
 1. **Clonar el repositorio**
    ```bash
-   git clone <URL-del-repositorio>
-   cd <nombre-del-repositorio>
+   git clone https://github.com/jbermejo14/restaurant-booking-api.git
+   cd https://github.com/jbermejo14/restaurant-booking-api.git
 ## Pasos para ejecutar la aplicación
 
 2. **Configurar el archivo `application.properties`**
@@ -39,19 +39,9 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
      ```bash
      mvn spring-boot:run
      ```
-   - Alternativamente, ejecuta el archivo `.jar` generado:
-     ```bash
-     java -jar target/tu-aplicacion.jar
-     ```
 
 5. **Abrir en el navegador**
    - Una vez iniciada, accede a la aplicación desde:
      ```
      http://localhost:8080
      ```
-
-## Notas adicionales
-
-- Si necesitas cambiar el puerto, edita el archivo `application.properties`:
-  ```properties
-  server.port=puerto_deseado
