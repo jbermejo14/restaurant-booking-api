@@ -10,6 +10,7 @@ import com.example.restaurantreservationaa.exception.RestaurantNotFoundException
 import com.example.restaurantreservationaa.service.RestaurantService;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantOutDto;
 import com.example.restaurantreservationaa.domain.dto.restaurant.RestaurantRegistrationDto;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class RestaurantController {
     }
 
     @PostMapping
-    public ResponseEntity<RestaurantOutDto> addRestaurant(@RequestBody RestaurantRegistrationDto restaurant) {
+    public ResponseEntity<RestaurantOutDto> addRestaurant(@RequestBody @Valid RestaurantRegistrationDto restaurant) {
         RestaurantOutDto newRestaurant = restaurantService.add(restaurant);
         return new ResponseEntity<>(newRestaurant, HttpStatus.CREATED);
     }
@@ -68,7 +69,7 @@ public class RestaurantController {
     }
 
     @PutMapping("/{restaurantId}")
-    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
+    public ResponseEntity<RestaurantOutDto> modifyRestaurant(@PathVariable @Valid long restaurantId, @RequestBody RestaurantInDto restaurant) throws RestaurantNotFoundException {
         RestaurantOutDto modifiedRestaurant = restaurantService.modify(restaurantId, restaurant);
         return new ResponseEntity<>(modifiedRestaurant, HttpStatus.OK);
     }

@@ -7,6 +7,7 @@ import com.example.restaurantreservationaa.domain.dto.order.OrderOutDto;
 import com.example.restaurantreservationaa.domain.dto.order.OrderRegistrationDto;
 import com.example.restaurantreservationaa.service.OrderService;
 import com.example.restaurantreservationaa.exception.OrderNotFoundException;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,13 +57,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderOutDto> addOrder(@RequestBody  OrderRegistrationDto order) {
+    public ResponseEntity<OrderOutDto> addOrder(@RequestBody @Valid OrderRegistrationDto order) {
         OrderOutDto newOrder = orderService.add(order);
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
 
     @PutMapping("/{orderId}")
-    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
+    public ResponseEntity<OrderOutDto> modifyOrder(@PathVariable @Valid long orderId, @RequestBody OrderInDto order) throws OrderNotFoundException {
         OrderOutDto modifiedOrder = orderService.modify(orderId, order);
         return new ResponseEntity<>(modifiedOrder, HttpStatus.OK);
     }

@@ -10,6 +10,7 @@ import com.example.restaurantreservationaa.domain.dto.customer.CustomerOutDto;
 import com.example.restaurantreservationaa.exception.BeverageNotFoundException;
 import com.example.restaurantreservationaa.exception.CustomerNotFoundException;
 import com.example.restaurantreservationaa.service.BeverageService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class BeverageController {
     }
 
     @PostMapping
-    public ResponseEntity<BeverageOutDto> addBeverage(@RequestBody BeverageRegistrationDto beverage) {
+    public ResponseEntity<BeverageOutDto> addBeverage(@RequestBody @Valid BeverageRegistrationDto beverage) {
         BeverageOutDto newBeverage = beverageService.add(beverage);
         return new ResponseEntity<>(newBeverage, HttpStatus.CREATED);
     }
@@ -67,7 +68,7 @@ public class BeverageController {
     }
 
     @PutMapping("/{beverageId}")
-    public ResponseEntity<BeverageOutDto> modifyBeverage(@PathVariable Long beverageId, @RequestBody BeverageInDto beverage) throws BeverageNotFoundException {
+    public ResponseEntity<BeverageOutDto> modifyBeverage(@PathVariable @Valid Long beverageId, @RequestBody BeverageInDto beverage) throws BeverageNotFoundException {
         BeverageOutDto modifiedBeverage = beverageService.modify(beverageId, beverage);
         return new ResponseEntity<>(modifiedBeverage, HttpStatus.OK);
     }

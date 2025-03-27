@@ -7,6 +7,7 @@ import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemOutDto;
 import com.example.restaurantreservationaa.domain.dto.menuitem.MenuItemRegistrationDto;
 import com.example.restaurantreservationaa.exception.MenuItemNotFoundException;
 import com.example.restaurantreservationaa.service.MenuItemService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class MenuItemController {
     }
 
     @PostMapping
-    public ResponseEntity<MenuItemOutDto> addMenuItem(@RequestBody MenuItemRegistrationDto menuItem) {
+    public ResponseEntity<MenuItemOutDto> addMenuItem(@RequestBody @Valid MenuItemRegistrationDto menuItem) {
         MenuItemOutDto newMenuItem = menuItemService.add(menuItem);
         return new ResponseEntity<>(newMenuItem, HttpStatus.CREATED);
     }
@@ -64,7 +65,7 @@ public class MenuItemController {
     }
 
     @PutMapping("/{menuItemId}")
-    public ResponseEntity<MenuItemOutDto> modifyMenuItem(@PathVariable long menuItemId, @RequestBody MenuItemInDto menuItem) throws MenuItemNotFoundException {
+    public ResponseEntity<MenuItemOutDto> modifyMenuItem(@PathVariable @Valid long menuItemId, @RequestBody MenuItemInDto menuItem) throws MenuItemNotFoundException {
         MenuItemOutDto modifiedMenuItem = menuItemService.modify(menuItemId, menuItem);
         return new ResponseEntity<>(modifiedMenuItem, HttpStatus.OK);
     }

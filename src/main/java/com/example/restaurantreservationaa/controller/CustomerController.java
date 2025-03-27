@@ -17,6 +17,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.validation.Valid;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -55,13 +57,13 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerOutDto> addCustomer(@RequestBody CustomerRegistrationDto customer) {
+    public ResponseEntity<CustomerOutDto> addCustomer(@RequestBody @Valid CustomerRegistrationDto customer) {
         CustomerOutDto newCustomer = customerService.add(customer);
         return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity<CustomerOutDto> modifyCustomer(@PathVariable long customerId, @RequestBody CustomerInDto customer) throws CustomerNotFoundException {
+    public ResponseEntity<CustomerOutDto> modifyCustomer(@PathVariable @Valid long customerId, @RequestBody CustomerInDto customer) throws CustomerNotFoundException {
         CustomerOutDto modifiedCustomer = customerService.modify(customerId, customer);
         return new ResponseEntity<>(modifiedCustomer, HttpStatus.OK);
     }
