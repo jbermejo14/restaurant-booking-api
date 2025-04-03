@@ -1,330 +1,66 @@
-2025-03-27 10:30:34,325 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 10:30:34,498 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 27177 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 10:30:34,511 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 10:30:40,352 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 10:30:41,567 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 1182 ms. Found 5 JPA repository interfaces.
-2025-03-27 10:30:45,799 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 10:30:46,293 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 10:30:46,584 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 10:30:47,998 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 10:30:48,134 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 10:30:48,989 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
-2025-03-27 10:30:48,999 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 10:30:49,120 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 10:30:53,253 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 10:30:53,420 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 10:30:54,568 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 10:30:56,494 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 10:30:57,969 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
-2025-03-27 10:30:58,227 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 25.302 seconds (process running for 28.719)
-2025-03-27 10:31:04,365 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 10:31:04,377 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 10:31:04,382 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 10:37:12,212 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 10:37:12,248 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 27332 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 10:37:12,250 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 10:37:13,728 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 10:37:13,891 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 146 ms. Found 5 JPA repository interfaces.
-2025-03-27 10:37:14,766 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 10:37:14,885 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 10:37:14,981 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 10:37:15,686 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 10:37:15,744 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 10:37:16,201 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
-2025-03-27 10:37:16,204 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 10:37:16,261 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 10:37:17,855 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 10:37:17,949 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 10:37:18,609 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 10:37:19,989 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 10:37:20,829 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
-2025-03-27 10:37:20,997 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.513 seconds (process running for 11.881)
-2025-03-27 10:37:25,133 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 10:37:25,156 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 10:37:25,184 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 11:14:55,212 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 11:14:55,524 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 27861 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 11:14:55,528 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 11:15:01,087 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 11:15:01,528 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 402 ms. Found 5 JPA repository interfaces.
-2025-03-27 11:15:03,218 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 11:15:03,369 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 11:15:03,782 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 11:15:15,908 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 11:15:16,526 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 11:15:17,843 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
-2025-03-27 11:15:17,846 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 11:15:17,908 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 11:15:21,009 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 11:15:21,120 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:15:21,988 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 11:15:23,726 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 11:15:24,514 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
-2025-03-27 11:15:24,629 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 32.328 seconds (process running for 34.406)
-2025-03-27 11:15:28,734 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:15:28,751 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 11:15:28,758 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 11:29:45,603 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 11:29:45,744 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 28127 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 11:29:45,746 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 11:29:47,364 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 11:29:47,611 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 213 ms. Found 5 JPA repository interfaces.
-2025-03-27 11:29:48,562 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 11:29:48,711 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 11:29:48,845 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 11:29:50,056 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 11:29:50,164 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 11:29:50,707 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
-2025-03-27 11:29:50,711 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 11:29:50,771 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 11:29:53,039 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 11:29:53,133 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:29:53,843 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 11:29:55,086 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 11:29:55,978 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
-2025-03-27 11:29:56,132 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 11.507 seconds (process running for 13.301)
-2025-03-27 11:30:00,723 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:30:00,734 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 11:30:00,744 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 11:36:36,287 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 11:36:36,383 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 28266 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 11:36:36,384 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 11:36:37,791 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 11:36:37,974 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 171 ms. Found 5 JPA repository interfaces.
-2025-03-27 11:36:42,727 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 11:36:43,202 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 11:36:43,434 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 11:36:45,435 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 11:36:45,856 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 11:36:46,977 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
-2025-03-27 11:36:46,981 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 11:36:47,138 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 11:36:52,246 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 11:36:52,727 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:36:55,438 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 11:37:05,598 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 11:37:10,701 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
-2025-03-27 11:37:10,955 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 35.352 seconds (process running for 37.07)
-2025-03-27 11:37:27,721 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:37:27,736 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 11:37:27,744 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 11:41:22,459 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 11:41:22,567 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 28382 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 11:41:22,570 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 11:41:24,327 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 11:41:24,761 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 411 ms. Found 5 JPA repository interfaces.
-2025-03-27 11:41:28,243 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 11:41:28,625 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 11:41:29,025 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 11:41:30,267 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 11:41:30,331 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 11:41:30,801 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/restaurant.db user=SA
-2025-03-27 11:41:30,804 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 11:41:30,862 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 11:41:32,514 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 11:41:32,595 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:41:33,210 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 11:41:34,640 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 11:41:35,449 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/restaurant.db'
-2025-03-27 11:41:35,704 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 14.125 seconds (process running for 15.993)
-2025-03-27 11:41:39,393 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:41:39,408 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 11:41:39,413 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 11:50:47,586 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 11:50:47,640 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 28608 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 11:50:47,643 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 11:50:49,124 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 11:50:49,275 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 135 ms. Found 5 JPA repository interfaces.
-2025-03-27 11:50:50,121 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 11:50:50,343 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 11:50:50,448 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 11:50:51,123 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 11:50:51,179 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 11:50:51,520 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 11:50:51,524 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 11:50:51,564 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 11:50:53,150 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 11:50:53,247 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:50:55,907 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 11:50:58,794 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 11:50:59,730 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 11:50:59,940 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 13.456 seconds (process running for 15.977)
-2025-03-27 11:51:03,477 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 11:51:03,501 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 11:51:03,508 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:00:57,378 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:00:57,442 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 28841 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:00:57,446 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:00:58,987 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:00:59,133 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 131 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:01:00,040 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:01:00,181 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:01:00,290 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:01:00,925 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:01:00,996 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:01:01,381 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:01:01,384 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:01:01,441 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:01:03,150 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:01:03,243 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:01:03,934 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:01:05,149 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:01:06,064 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:01:06,215 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.548 seconds (process running for 11.602)
-2025-03-27 12:01:08,939 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:01:08,959 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:01:08,966 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:13:37,457 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:13:37,714 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29062 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:13:37,716 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:13:39,228 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:13:39,369 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 128 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:13:40,223 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:13:40,381 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:13:40,473 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:13:41,084 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:13:41,136 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:13:41,443 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:13:41,446 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:13:41,486 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:13:43,353 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:13:43,499 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:13:44,373 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:13:45,377 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:13:46,071 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:13:46,203 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.632 seconds (process running for 13.178)
-2025-03-27 12:13:48,337 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:13:48,361 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:13:48,367 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:14:23,158 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:14:23,227 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29106 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:14:23,229 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:14:25,378 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:14:25,532 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:14:26,718 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:14:26,954 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:14:27,176 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:14:28,067 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:14:28,138 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:14:28,452 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:14:28,455 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:14:28,500 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:14:29,986 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:14:30,073 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:14:30,676 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:14:31,629 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:14:32,136 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:14:32,225 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.731 seconds (process running for 11.375)
-2025-03-27 12:14:33,933 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:14:33,953 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:14:33,958 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:15:19,649 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:15:19,725 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29137 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:15:19,727 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:15:21,142 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:15:21,277 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 119 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:15:22,104 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:15:22,236 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:15:22,337 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:15:22,983 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:15:23,043 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:15:23,406 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:15:23,410 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:15:23,459 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:15:25,094 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:15:25,205 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:15:25,727 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:15:26,689 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:15:27,364 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:15:27,460 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 8.758 seconds (process running for 11.01)
-2025-03-27 12:15:29,771 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:15:29,797 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:15:29,802 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:23:33,876 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:23:33,931 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29259 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:23:33,934 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:23:35,264 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:23:35,415 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 135 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:23:36,301 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:23:36,451 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:23:36,538 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:23:37,143 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:23:37,198 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:23:37,511 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:23:37,514 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:23:37,570 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:23:39,066 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:23:39,171 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:23:39,695 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:23:40,614 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:23:41,227 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:23:41,332 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 8.316 seconds (process running for 10.771)
-2025-03-27 12:23:43,674 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:23:43,699 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:23:43,705 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:25:13,688 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:25:13,735 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29316 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:25:13,737 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:25:15,372 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:25:15,566 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 165 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:25:16,921 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:25:17,098 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:25:17,206 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:25:18,763 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:25:18,874 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:25:19,236 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:25:19,240 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:25:19,297 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:25:21,387 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:25:21,478 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:25:22,426 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:25:23,711 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:25:24,345 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:25:24,528 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 11.514 seconds (process running for 13.414)
-2025-03-27 12:25:26,826 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:25:26,852 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:25:26,857 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:26:03,193 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:26:03,267 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29356 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:26:03,278 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:26:04,754 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:26:04,885 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 117 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:26:05,851 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:26:05,987 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:26:06,087 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:26:06,758 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:26:06,807 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:26:07,098 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:26:07,101 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:26:07,143 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:26:08,728 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:26:08,840 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:26:09,469 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:26:10,999 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:26:11,795 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:26:11,877 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.277 seconds (process running for 11.69)
-2025-03-27 12:26:13,751 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:26:13,771 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:26:13,783 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2025-03-27 12:27:13,068 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2025-03-27 12:27:13,233 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 29397 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
-2025-03-27 12:27:13,236 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
-2025-03-27 12:27:15,620 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-27 12:27:15,818 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 156 ms. Found 5 JPA repository interfaces.
-2025-03-27 12:27:16,733 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-27 12:27:16,846 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-03-27 12:27:16,934 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
-2025-03-27 12:27:17,621 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-27 12:27:17,681 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
-2025-03-27 12:27:18,042 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-03-27 12:27:18,046 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
-2025-03-27 12:27:18,097 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-27 12:27:19,817 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-27 12:27:19,897 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:27:20,541 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-03-27 12:27:21,601 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-27 12:27:22,321 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-03-27 12:27:22,443 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 10.413 seconds (process running for 13.014)
-2025-03-27 12:27:25,123 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-27 12:27:25,147 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2025-03-27 12:27:25,159 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2025-04-03 11:04:14,269 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2025-04-03 11:04:14,388 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 2170 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2025-04-03 11:04:14,390 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
+2025-04-03 11:04:16,033 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-03 11:04:16,182 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 123 ms. Found 5 JPA repository interfaces.
+2025-04-03 11:04:17,240 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-03 11:04:17,461 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-03 11:04:17,591 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
+2025-04-03 11:04:18,244 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-03 11:04:18,287 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
+2025-04-03 11:04:18,584 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-04-03 11:04:18,587 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
+2025-04-03 11:04:18,628 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-03 11:04:20,347 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-03 11:04:20,444 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03 11:04:21,095 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-03 11:04:22,164 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-03 11:04:22,771 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-04-03 11:04:22,881 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.412 seconds (process running for 10.998)
+2025-04-03 11:04:25,729 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03 11:04:25,753 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-04-03 11:04:25,757 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2025-04-03 11:14:42,365 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2025-04-03 11:14:42,455 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 2332 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2025-04-03 11:14:42,458 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
+2025-04-03 11:14:43,631 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-03 11:14:43,745 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 102 ms. Found 5 JPA repository interfaces.
+2025-04-03 11:14:44,471 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-03 11:14:44,579 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-03 11:14:44,704 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
+2025-04-03 11:14:45,547 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-03 11:14:45,615 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
+2025-04-03 11:14:46,004 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-04-03 11:14:46,008 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
+2025-04-03 11:14:46,087 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-03 11:14:48,266 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-03 11:14:48,369 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03 11:14:48,891 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-03 11:14:50,088 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-03 11:14:50,727 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-04-03 11:14:50,829 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 9.154 seconds (process running for 10.67)
+2025-04-03 11:14:53,292 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03 11:14:53,310 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-04-03 11:14:53,315 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2025-04-03 11:15:26,633 INFO o.h.v.i.u.Version {<clinit>} [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2025-04-03 11:15:26,713 INFO o.s.b.StartupInfoLogger {logStarting} [main] Starting RestaurantReservationAaApplicationTests using Java 21.0.2 with PID 2365 (started by jaimebermejo in /Users/jaimebermejo/IdeaProjects/RestaurantReservationAA)
+2025-04-03 11:15:26,715 INFO o.s.b.SpringApplication {logStartupProfileInfo} [main] No active profile set, falling back to 1 default profile: "default"
+2025-04-03 11:15:28,215 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-03 11:15:28,372 INFO o.s.d.r.c.RepositoryConfigurationDelegate {registerRepositoriesIn} [main] Finished Spring Data repository scanning in 142 ms. Found 5 JPA repository interfaces.
+2025-04-03 11:15:29,242 INFO o.h.j.i.u.LogHelper {logPersistenceUnitInformation} [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-03 11:15:29,369 INFO o.h.Version {logVersion} [main] HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-03 11:15:29,461 INFO o.h.c.i.RegionFactoryInitiator {initiateService} [main] HHH000026: Second-level cache disabled
+2025-04-03 11:15:30,243 INFO o.s.o.j.p.SpringPersistenceUnitInfo {addTransformer} [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-03 11:15:30,320 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Starting...
+2025-04-03 11:15:30,716 INFO c.z.h.p.HikariPool {checkFailFast} [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-04-03 11:15:30,719 INFO c.z.h.HikariDataSource {getConnection} [main] HikariPool-1 - Start completed.
+2025-04-03 11:15:30,777 WARN o.h.e.j.d.i.DialectFactoryImpl {constructDialect} [main] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-03 11:15:32,399 INFO o.h.e.t.j.p.i.JtaPlatformInitiator {initiateService} [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-03 11:15:32,515 INFO o.s.o.j.AbstractEntityManagerFactoryBean {buildNativeEntityManagerFactory} [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03 11:15:33,093 INFO o.s.d.j.r.q.QueryEnhancerFactory {<clinit>} [main] Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-03 11:15:34,149 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration {openEntityManagerInViewInterceptor} [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-03 11:15:34,726 INFO o.s.b.a.h.H2ConsoleAutoConfiguration {logDataSources} [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-04-03 11:15:34,840 INFO o.s.b.StartupInfoLogger {logStarted} [main] Started RestaurantReservationAaApplicationTests in 8.781 seconds (process running for 10.292)
+2025-04-03 11:15:37,259 INFO o.s.o.j.AbstractEntityManagerFactoryBean {destroy} [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03 11:15:37,298 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-04-03 11:15:37,319 INFO c.z.h.HikariDataSource {close} [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
