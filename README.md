@@ -1,394 +1,87 @@
-# 🍽️ Restaurant API
+# 🍽️ Restaurant API (v0.1.9)
 
-A RESTful API for managing restaurants, orders, and customers. This API allows CRUD operations on restaurant data, customer records, and order information.
+A simple REST API to manage restaurants, orders, customers, menu items, and beverages.
 
-## 🌐 Base URL
-https://restaurantapi.com
+Base URL: https://restaurantapi.com
+
+## ⚙️ About the Project
+
+This API is built with:
+
+- **Java & Spring Boot**
+- **RESTful architecture**
+- **Maven** for project management
+- **MariaDB / MySQL** as the database
+- **JUnit & Mockito** for unit testing
+- **Lombok** for cleaner code
+- **Spring Data JPA** for data access
+- **Validation** using `javax.validation`
+- **Exception handling** with custom error responses
+- **DTOs** to separate data models from entities
+- **Docker support** for containerized deployment
 
 ---
 
-## 📖 Endpoints
+## 📚 Main Endpoints
 
 ### 🏪 Restaurants
-
-#### `GET /restaurants`
-
-Returns a list of all restaurants.
-
-- **Responses**:
-  - `200 OK`: Array of `RestaurantOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `POST /restaurants`
-
-Creates a new restaurant.
-
-- **Request Body**:
-  - `RestaurantInDto`
-- **Responses**:
-  - `201 Created`: `RestaurantOutDto`
-  - `400 Bad Request`
-  - `500 Internal Server Error`
-
----
-
-#### `GET /restaurants/{restaurantId}`
-
-Returns details of a specific restaurant by ID.
-
-- **Parameters**:
-  - `restaurantId`: *int64* (required)
-- **Responses**:
-  - `200 OK`: `RestaurantOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `DELETE /restaurants/{restaurantId}`
-
-Deletes a specific restaurant by ID.
-
-- **Parameters**:
-  - `restaurantId`: *int64* (required)
-- **Responses**:
-  - `204 No Content`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `PUT /restaurants/{restaurantId}`
-
-Updates a specific restaurant by ID.
-
-- **Parameters**:
-  - `restaurantId`: *int64* (required)
-- **Request Body**:
-  - `RestaurantInDto`
-- **Responses**:
-  - `200 OK`: `RestaurantOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
+- GET /restaurants – List all
+- POST /restaurants – Create new
+- GET /restaurants/{id} – Get by ID
+- PUT /restaurants/{id} – Replace by ID
+- PATCH /restaurants/{id} – Partially update by ID
+- DELETE /restaurants/{id} – Delete by ID
 
 ### 📦 Orders
-
-#### `GET /orders`
-
-Returns a list of all orders.
-
-- **Responses**:
-  - `200 OK`: Array of `OrderOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `POST /orders`
-
-Creates a new order.
-
-- **Request Body**:
-  - `OrderInDto`
-- **Responses**:
-  - `201 Created`: `OrderOutDto`
-  - `400 Bad Request`
-  - `500 Internal Server Error`
-
----
-
-#### `GET /orders/{orderId}`
-
-Returns order details by ID.
-
-- **Parameters**:
-  - `orderId`: *int64* (required)
-- **Responses**:
-  - `200 OK`: `OrderOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `DELETE /orders/{orderId}`
-
-Deletes a specific order by ID.
-
-- **Parameters**:
-  - `orderId`: *int64* (required)
-- **Responses**:
-  - `204 No Content`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `PUT /orders/{orderId}`
-
-Updates an order by ID.
-
-- **Parameters**:
-  - `orderId`: *int64* (required)
-- **Request Body**:
-  - `OrderInDto`
-- **Responses**:
-  - `200 OK`: `OrderOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
+- GET /orders
+- POST /orders
+- GET /orders/{id}
+- PUT /orders/{id}
+- PATCH /orders/{id}
+- DELETE /orders/{id}
 
 ### 👥 Customers
-
-#### `GET /customers`
-
-Returns a list of all customers.
-
-- **Responses**:
-  - `200 OK`: Array of `CustomerOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `POST /customers`
-
-Creates a new customer.
-
-- **Request Body**:
-  - `CustomerInDto`
-- **Responses**:
-  - `201 Created`: `CustomerOutDto`
-  - `400 Bad Request`
-  - `500 Internal Server Error`
-
----
-
-#### `GET /customers/{customerId}`
-
-Returns customer details by ID.
-
-- **Parameters**:
-  - `customerId`: *int64* (required)
-- **Responses**:
-  - `200 OK`: `CustomerOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `DELETE /customers/{customerId}`
-
-Deletes a customer by ID.
-
-- **Parameters**:
-  - `customerId`: *int64* (required)
-- **Responses**:
-  - `204 No Content`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `PUT /customers/{customerId}`
-
-Updates a customer by ID.
-
-- **Parameters**:
-  - `customerId`: *int64* (required)
-- **Request Body**:
-  - `CustomerInDto`
-- **Responses**:
-  - `200 OK`: `CustomerOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
+- GET /customers
+- POST /customers
+- GET /customers/{id}
+- PUT /customers/{id}
+- PATCH /customers/{id}
+- DELETE /customers/{id}
 
 ### 🍽️ Menu Items
-
-#### `GET /menuitems`
-
-Returns a list of all menu items.
-
-- **Responses**:
-  - `200 OK`: Array of `MenuItemOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `POST /menuitems`
-
-Creates a new menu item.
-
-- **Request Body**:
-  - `MenuItemInDto`
-- **Responses**:
-  - `201 Created`: `MenuItemOutDto`
-  - `400 Bad Request`
-  - `500 Internal Server Error`
-
----
-
-#### `GET /menuitems/{menuitemId}`
-
-Returns details of a specific menu item by ID.
-
-- **Parameters**:
-  - `menuitemId`: *int64* (required)
-- **Responses**:
-  - `200 OK`: `MenuItemOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `PUT /menuitems/{menuitemId}`
-
-Updates a menu item by ID.
-
-- **Parameters**:
-  - `menuitemId`: *int64* (required)
-- **Request Body**:
-  - `MenuItemInDto`
-- **Responses**:
-  - `200 OK`: `MenuItemOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `DELETE /menuitems/{menuitemId}`
-
-Deletes a specific menu item by ID.
-
-- **Parameters**:
-  - `menuitemId`: *int64* (required)
-- **Responses**:
-  - `204 No Content`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
+- GET /menuitems
+- POST /menuitems
+- GET /menuitems/{id}
+- PUT /menuitems/{id}
+- PATCH /menuitems/{id}
+- DELETE /menuitems/{id}
 
 ### 🍹 Beverages
-
-#### `GET /beverages`
-
-Returns a list of all beverages.
-
-- **Responses**:
-  - `200 OK`: Array of `BeverageOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
+- GET /beverages
+- POST /beverages
+- GET /beverages/{id}
+- PUT /beverages/{id}
+- PATCH /beverages/{id}
+- DELETE /beverages/{id}
 
 ---
 
-#### `POST /beverages`
+## 🔁 Data Format
 
-Creates a new beverage.
-
-- **Request Body**:
-  - `BeverageInDto`
-- **Responses**:
-  - `201 Created`: `BeverageOutDto`
-  - `400 Bad Request`
-  - `500 Internal Server Error`
+Each resource uses standard DTOs:
+- Input: *InDto* (e.g., RestaurantInDto)
+- Output: *OutDto* (e.g., RestaurantOutDto)
 
 ---
 
-#### `GET /beverages/{beverageId}`
+## ❗ Error Codes
 
-Returns details of a specific beverage by ID.
-
-- **Parameters**:
-  - `beverageId`: *int64* (required)
-- **Responses**:
-  - `200 OK`: `BeverageOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `PUT /beverages/{beverageId}`
-
-Updates a beverage by ID.
-
-- **Parameters**:
-  - `beverageId`: *int64* (required)
-- **Request Body**:
-  - `BeverageInDto`
-- **Responses**:
-  - `200 OK`: `BeverageOutDto`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-#### `DELETE /beverages/{beverageId}`
-
-Deletes a specific beverage by ID.
-
-- **Parameters**:
-  - `beverageId`: *int64* (required)
-- **Responses**:
-  - `204 No Content`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `500 Internal Server Error`
-
----
-
-## 📦 Schemas
-
-This API uses standard data transfer objects:
-- `RestaurantInDto`, `RestaurantOutDto`
-- `OrderInDto`, `OrderOutDto`
-- `CustomerInDto`, `CustomerOutDto`
-- Error responses: `BadRequest`, `NotFound`, `InternalServerError`
-
----
-
-## 🔒 Error Handling
-
-| Code | Meaning                   |
-|------|---------------------------|
-| 200  | OK                        |
-| 204  | No Content                |
-| 400  | Bad Request               |
-| 404  | Not Found                 |
-| 500  | Internal Server Error     |
-
----
-
-## 📌 Version
-
-**v0.1.9**
+- 200 OK
+- 201 Created
+- 204 No Content
+- 400 Bad Request
+- 404 Not Found
+- 500 Internal Server Error
 
 ---
 
