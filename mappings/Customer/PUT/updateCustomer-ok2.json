@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "PUT",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": { "equalTo": "ok2" }
+    },
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.email=='jane.doe@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "body": "{\"message\": \"Customer updated successfully (ok2)\"}",
+    "headers": { "Content-Type": "application/json" }
+  }
+}

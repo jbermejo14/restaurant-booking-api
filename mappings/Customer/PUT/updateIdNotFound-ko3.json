@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "PUT",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": { "equalTo": "ko3" }
+    },
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.email=='not.found@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 404,
+    "body": "{\"error\": \"Customer not found\"}",
+    "headers": { "Content-Type": "application/json" }
+  }
+}

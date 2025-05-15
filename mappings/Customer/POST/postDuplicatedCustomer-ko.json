@@ -1,0 +1,21 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "url": "/api/customers",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.email == 'john.test@example.com')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 409,
+    "jsonBody": {
+      "error": "Customer with this email already exists"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+} 

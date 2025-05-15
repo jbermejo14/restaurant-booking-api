@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "DELETE",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ok1"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "{\"message\": \"Customer deleted successfully\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

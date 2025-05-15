@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "PUT",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": { "equalTo": "ko1" }
+    },
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.email =~ /[^@]+/)]" }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "body": "{\"error\": \"Invalid email format\"}",
+    "headers": { "Content-Type": "application/json" }
+  }
+}

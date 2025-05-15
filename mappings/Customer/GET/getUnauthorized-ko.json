@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ko2"
+      }
+    },
+    "headers": {
+      "Authorization": {
+        "absent": true
+      }
+    }
+  },
+  "response": {
+    "status": 401,
+    "body":
+      "Unauthorized: missing token"
+    ,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

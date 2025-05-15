@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/customers",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.role == 'admin')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "body": "{\"message\": \"Admin customer created successfully\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

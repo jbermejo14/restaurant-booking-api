@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "DELETE",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ok3"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "{\"status\": \"Deleted\", \"userId\": \"123\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

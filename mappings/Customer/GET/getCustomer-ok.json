@@ -1,0 +1,37 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ok1"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": [
+      {
+        "name": "John",
+        "surname": "Doe",
+        "phone": "+123456789",
+        "password": "hidden",
+        "email": "john.doe@example.com",
+        "role": "user",
+        "dateJoined": "2024-01-01T00:00:00Z"
+      },
+      {
+        "name": "Alice",
+        "surname": "Smith",
+        "phone": "+987654321",
+        "password": "hidden",
+        "email": "alice.smith@example.com",
+        "role": "admin",
+        "dateJoined": "2024-03-01T00:00:00Z"
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/customers",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.email=='john.test2@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "body": "{\"message\":\"Customer created successfully\"}",
+    "headers": { "Content-Type":"application/json" }
+  }
+}

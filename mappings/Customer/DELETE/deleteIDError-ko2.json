@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "DELETE",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ko2"
+      }
+    }
+  },
+  "response": {
+    "status": 400,
+    "body": "{\"error\": \"Invalid user ID format\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

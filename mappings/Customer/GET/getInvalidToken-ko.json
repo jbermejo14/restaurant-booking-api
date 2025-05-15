@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ko3"
+      }
+    }
+  },
+  "response": {
+    "status": 403,
+    "body": "Forbidden: invalid token",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

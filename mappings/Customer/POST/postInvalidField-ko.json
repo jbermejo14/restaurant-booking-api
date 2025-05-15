@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/customers",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.email =~ /[^@]+/)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "body": "{\"error\": \"Invalid Email\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

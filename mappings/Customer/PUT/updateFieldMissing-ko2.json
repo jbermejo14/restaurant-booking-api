@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "PUT",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": { "equalTo": "ko2" }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(!@.email)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "body": "{\"error\": \"Missing required field: email\"}",
+    "headers": { "Content-Type": "application/json" }
+  }
+}

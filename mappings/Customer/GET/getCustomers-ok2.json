@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/customers",
+    "queryParameters": {
+      "testcase": {
+        "equalTo": "ok2"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": [
+      {
+        "name": "Jane",
+        "surname": "Test",
+        "phone": "+123123123",
+        "password": "hidden",
+        "email": "jane.test@example.com",
+        "role": "user",
+        "dateJoined": "2024-02-15T00:00:00Z"
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
