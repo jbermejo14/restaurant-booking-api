@@ -66,14 +66,6 @@ This API is built with:
 
 ---
 
-## 🔁 Data Format
-
-Each resource uses standard DTOs:
-- Input: *InDto* (e.g., RestaurantInDto)
-- Output: *OutDto* (e.g., RestaurantOutDto)
-
----
-
 ## ❗ Error Codes
 
 - 200 OK
@@ -82,9 +74,3 @@ Each resource uses standard DTOs:
 - 400 Bad Request
 - 404 Not Found
 - 500 Internal Server Error
-
----
-
-## 📄 License
-
-MIT License
